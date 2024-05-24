@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import "@/style/home.css";
-import im from "/public/image/h1.jpg";
+import im from "/public/image/h1.png";
 import logo from "/public/image/logo.png";
 import Link from "next/link";
 import { motion } from "framer-motion";

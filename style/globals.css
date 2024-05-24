@@ -122,7 +122,6 @@ background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
 .btn{
   background: -webkit-linear-gradient(#f7ff47, #ffb947);
   padding: 10px;
-  border-radius: 10rem;
   font-weight: 800;
   transition: all ease-in-out 0.4s;
 }
@@ -131,5 +130,10 @@ background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
 }
 .custom-toast {
   font-size:15px;
+}
+.background{
+  background: #f7ff47;
+  background: -webkit-radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+  background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
 }
 
