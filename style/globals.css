@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0;
+  margin: 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.full-scale{
+  scale: 100;
+  transition:all 1s;
+}
+.hov1 {
+  letter-spacing: 0;
+}
+
+.hov1 {
+  letter-spacing: 0;
+}
+
+.hov1:hover,
+.hov1:active {
+  letter-spacing: 5px;
+}
+
+.hov1:after,
+.hov1:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 5px auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.hov1:hover:after,
+.hov1:hover:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-color: #f8b228;
+  transition: width 350ms ease-in-out;
+  width: 100%;
+}
+
+.hov1:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 100%;
+}
+.main{
+  background-color: #eee;
+}
+.menu-color{
+background: #f7ff47;
+background: -webkit-radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+}
+.hov2 {
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  border-radius: 10rem;
+} 
+.hov2:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+}
+.hov3{
+  background-image: linear-gradient(
+    to right,
+    #f7ff47,
+    #ffb947 50%,
+    #000 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.4s ease-in-out;
+}
+.hov3:before {
+  content: '';
+  background: -webkit-linear-gradient(#f7ff47, #ffb947);
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.4s ease-in-out;
+}
+.hov3:hover {
+  background-position: 0;
+ }
+ .hov3:hover::before {
+  width: 100%;
+}
+.title{
+  background: -webkit-linear-gradient(#f7ff47, #ffb947);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.per{
+  perspective:900px;
+}
+.btn{
+  background: -webkit-linear-gradient(#f7ff47, #ffb947);
+  padding: 10px;
+  border-radius: 10rem;
+  font-weight: 800;
+  transition: all ease-in-out 0.4s;
+}
+.btn:hover{
+  transform: scale(1.2);
+}
+.custom-toast {
+  font-size:15px;
+}
+
