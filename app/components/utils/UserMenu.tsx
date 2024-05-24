@@ -15,7 +15,7 @@ function UserMenu() {
      }`}
       ></div>
       <div
-        className="bg-white fixed rounded-full cursor-pointer right-10 lg:top-11 top-3.5 hover:scale-125 ease-in-out duration-300 z-50"
+        className="bg-white px-1 fixed rounded-full cursor-pointer right-10 lg:top-11 top-3.5 hover:scale-125 ease-in-out duration-300 z-50"
         onClick={toggle}
       >
         {isOpen === true ? (

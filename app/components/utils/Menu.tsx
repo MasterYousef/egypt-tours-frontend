@@ -10,9 +10,9 @@ function Menu() {
 
   return (
     <div>
-    <div className={`menu-color fixed p-5 w-12 h-12 ease-in-out duration-500 right-10 top-3.5 lg:top-11 my-1 z-40
+    <div className={`menu-color fixed p-7  w-12 h-12 ease-in-out duration-500 right-10 top-3.5 lg:top-11 my-1 z-40
      ${isOpen === true ? ' scale-150 rounded-none full-scale':' rounded-full' }`}></div>
-    <div className= 'bg-white fixed rounded-full cursor-pointer right-10 lg:top-11 top-3.5 hover:scale-125 ease-in-out duration-300 z-50'
+    <div className= 'bg-white px-1 fixed rounded-full cursor-pointer right-10 lg:top-11 top-3.5 hover:scale-125 ease-in-out duration-300 z-50'
       onClick={toggle}>
       {
         isOpen === true ? (<i className="fa-solid fa-xmark p-4 text-2xl"></i>):(<i className="fa-solid fa-bars p-4 text-2xl"></i>)
