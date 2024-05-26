@@ -78,7 +78,7 @@ function SignUp() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 ease-in-out duration-300"
+                className="w-full rounded  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 ease-in-out duration-300"
               >
                 Sign Up
               </button>

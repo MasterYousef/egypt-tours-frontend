@@ -6,15 +6,17 @@ import user from "@/app/types/userResponse";
 import { toast } from "react-toastify";
 
 const signUpLogic = ()=>{
-    const handleSubmit = async (e:React.ChangeEvent<signUpForm>)=>{
+    type FormEventAlias = React.ChangeEvent<signUpForm> | React.FormEvent<HTMLFormElement>;
+    const handleSubmit = async (e:FormEventAlias)=>{
         e.preventDefault();
-        if(e.target.password.value !== e.target.passwordConfirm.value){
+        const formEvent = e as React.ChangeEvent<signUpForm>
+        if(formEvent.target.password.value !== formEvent.target.passwordConfirm.value){
             toast.error("password Confirm not correct")
         }else{
             const data = {
-                username: e.target.name.value,
-                email: e.target.email.value,
-                password: e.target.password.value,
+                username: formEvent.target.name.value,
+                email: formEvent.target.email.value,
+                password: formEvent.target.password.value,
                 role:"user"
             }
             const res = await useInsertData<user>("/api/v1/auth/signup",data) 

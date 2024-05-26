@@ -6,13 +6,14 @@ import user from "@/app/types/userResponse";
 import { toast } from "react-toastify";
 
 const loginLogic = ()=>{
-    const handleSubmit = async (e:React.ChangeEvent<loginForm>)=>{
+    const handleSubmit = async (e:React.ChangeEvent<loginForm> | React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
-        if(e.target.password.value){
+        const event = e as React.ChangeEvent<loginForm>
+        if(event.target.password.value){
             const data = {
-                email: e.target.email.value,
-                password: e.target.password.value,
-            }
+                email: event.target.email.value,
+                password: event.target.password.value,
+            } 
             const res = await useInsertData<user>("/api/v1/auth/login",data) 
             if(res.status === "success"){
                 toast.success("user has been login successfully",{
