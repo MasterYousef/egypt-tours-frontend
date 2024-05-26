@@ -1,14 +1,16 @@
 'use client';
 import React, { useState ,Fragment } from 'react'
 import Title from '../utils/Title'
+import loginLogic from '@/app/logic/auth/login';
 function LogIn() {
+  const handleSubmit = loginLogic()
   return (
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Title text='Login Now'/>
         </div>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address

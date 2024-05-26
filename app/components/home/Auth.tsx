@@ -5,7 +5,7 @@ import im from '/public/image/h3.png'
 import LogIn from '../auth/LogIn'
 import SignUp from '../auth/SignUp';
 function Auth() {
-    const [isMember, setIsMember] = useState(true)
+  const [isMember, setIsMember] = useState<boolean>(true)
   return (
     <div className='auth justify-center flex items-center relative' id='Auth'>
         <Image src={im} width={1000} height={1000} className='auth-img rounded' alt={''}/>

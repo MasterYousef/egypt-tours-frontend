@@ -1,4 +1,5 @@
 "use client";
+import useLogOut from "@/app/hooks/useLogOut";
 import Link from "next/link";
 import React, { useState } from "react";
 function AdminMenu() {
@@ -51,9 +52,9 @@ function AdminMenu() {
         >
           Add New Tour
         </Link>
-        <Link href="#" className="mb-3 py-2 px-3 hov1">
+        <button onClick={()=>useLogOut(setIsOpen(false))} className="mb-3 py-2 px-3 hov1">
           Log Out
-        </Link>
+        </button>
       </div>
     </>
   );

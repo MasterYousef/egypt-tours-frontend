@@ -1,15 +1,16 @@
 'use client';
 import React, { Fragment } from 'react'
 import Title from '../utils/Title'
+import signUpLogic from '@/app/logic/auth/signUp';
 function SignUp() {
+  const handleSubmit = signUpLogic()
   return (
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-3 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Title text='sign up Now'/>
         </div>
-
         <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" method="POST" >
+          <form className="space-y-6" onSubmit={handleSubmit} >
           <div>
               <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                 Name
@@ -77,7 +78,7 @@ function SignUp() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 ease-in-out duration-300"
+                className="flex w-full justify-center rounded  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 ease-in-out duration-300"
               >
                 Sign Up
               </button>
