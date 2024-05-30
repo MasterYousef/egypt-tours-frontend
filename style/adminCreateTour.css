@@ -1,0 +1,33 @@
+.react-datepicker__day--selected{
+    background-color:  #fcd34d ;
+}
+  
+.react-datepicker__day--selected:hover {
+    background-color:  rgb(245 158 11 / var(--tw-bg-opacity));
+  }
+  
+  .react-datepicker__day:hover{
+    background-color:  rgb(245 158 11 / var(--tw-bg-opacity));
+  }
+.img{
+  position: relative;
+}
+.img::before{
+  font-family: "Font Awesome 6 Free";
+  content: "\f030";
+  font-weight: 900;
+  font-size: 2rem;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.204);
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all ease-in-out 0.5s;
+}
+.img:hover::before{
+  opacity: 1;
+}

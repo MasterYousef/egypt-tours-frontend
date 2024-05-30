@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import ErrorResponse from "../types/error"
+import {ErrorResponse} from "../types/types"
 
 const handleErrors = (error:ErrorResponse)=>{
     console.log(error);

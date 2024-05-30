@@ -8,6 +8,7 @@ import AdminMenu from "./components/utils/AdminMenu";
 import UserMenu from "./components/utils/UserMenu";
 import Menu from "./components/utils/Menu";
 import GetUserData from "./logic/GetUserData";
+import "react-datepicker/dist/react-datepicker.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,12 +22,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = GetUserData()
+  const {user} = GetUserData()
   return (
     <html lang="en">        
       <body className={`${inter.className} `}>
         <div className=' lg:m-8 overflow-hidden '>
-          {user ? (user.role === "admin"  ? <AdminMenu /> : <UserMenu />) : <Menu />}
+          {user ? (user?.role === "admin"  ? <AdminMenu /> : <UserMenu />) : <Menu />}
         {children}
         <Footer/>
       </div>

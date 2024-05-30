@@ -1,0 +1,28 @@
+.profile {
+  background: #f7ff47;
+  background: -webkit-radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+  background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+}
+.im {
+  border-radius: 50%;
+}
+.im::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f030";
+  font-weight: 900; /* Required for solid icons */
+  font-size: 2rem;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.204);
+  border-radius: 50%;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all ease-in-out 0.5s;
+}
+.im:hover::before {
+  opacity: 1;
+}

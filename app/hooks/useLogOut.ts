@@ -9,7 +9,7 @@ const useLogOut = async (fun:void) => {
       if (response.ok) {
         setTimeout(()=>{
             fun
-            window.location.reload();
+            window.location.href = "/";
         },1000)
       } else {
         console.error('Failed to delete cookie');

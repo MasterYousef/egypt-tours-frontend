@@ -6,7 +6,7 @@ import Landing from "./components/home/Landing";
 import Tours from "./components/home/Tours";
 import GetUserData from "./logic/GetUserData";
 export default function Home() {
-  const user = GetUserData()
+  const {user} = GetUserData()
   return (
     <main className="main" >
     <Landing/>

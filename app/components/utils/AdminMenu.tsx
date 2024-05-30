@@ -10,7 +10,7 @@ function AdminMenu() {
   return (
     <>
       <div
-        className={`menu-color fixed p-5 w-12 h-12 ease-in-out duration-500 right-10 top-3.5 lg:top-11 my-1 z-40
+        className={`menu-color fixed p-5 w-12 h-12 ease-in-out duration-500 right-11 top-3.5 lg:top-11 my-1 z-40
      ${
        isOpen === true ? " scale-150 rounded-none full-scale" : " rounded-full"
      }`}
@@ -46,7 +46,7 @@ function AdminMenu() {
           All Tours
         </Link>
         <Link
-          href="Admin-Create-Tour"
+          href="admin-create-tour"
           onClick={() => setIsOpen(false)}
           className="mb-3 py-2 px-3 hov1 "
         >

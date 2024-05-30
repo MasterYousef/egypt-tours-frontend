@@ -9,6 +9,15 @@ interface signUpForm extends HTMLFormControlsCollection {
   password: HTMLInputElement;
   passwordConfirm: HTMLInputElement;
 }
+interface tourForm extends HTMLFormControlsCollection {
+  name: HTMLInputElement;
+  img: HTMLInputElement;
+  duration: HTMLInputElement;
+  guides: HTMLInputElement;
+  maxPeople: HTMLInputElement;
+  description: HTMLInputElement;
+  price: HTMLInputElement;
+}
 interface cookie {
   name: string;
   value: string;
@@ -26,11 +35,28 @@ type ErrorResponse = {
   };
 };
 interface user {
+  _id: string;
   username: string;
   password: string;
   email: string;
   image: string;
   role: string;
+}
+interface tour {
+  status: string;
+  data: {
+    _id: string;
+    title: string;
+    imageCover: string;
+    description: string;
+    price: number;
+    people: number;
+    maxPeople: number;
+    duration: number;
+    guides: number;
+    start: string;
+    role: string;
+  };
 }
 interface userResponse {
   status: string;
@@ -50,4 +76,6 @@ export type {
   user,
   userResponse,
   resMessage,
+  tourForm,
+  tour,
 };
