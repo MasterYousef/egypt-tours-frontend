@@ -137,4 +137,14 @@ background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
   background: -webkit-radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
   background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
 }
+.react-datepicker__day--selected{
+  background-color:  #fcd34d ;
+}
 
+.react-datepicker__day--selected:hover {
+  background-color:  rgb(245 158 11 / var(--tw-bg-opacity));
+}
+
+.react-datepicker__day:hover{
+  background-color:  rgb(245 158 11 / var(--tw-bg-opacity));
+}

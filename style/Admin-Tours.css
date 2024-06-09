@@ -1,0 +1,33 @@
+.head{
+    background: -webkit-linear-gradient(#f7ff47, #ffb947);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.admin-card{
+    width: calc(100%/3 - 25px);
+    height: 35rem
+}
+.se-in:focus-within{
+    outline: solid #fbbf24 3px;
+}
+.rate:hover .hs{
+    color: #fbbf24;
+}
+.card-details{
+    font-size: 10px;
+}
+.card-head{
+    background: -webkit-linear-gradient(#f7ff47, #ffb947);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bg{
+background: #f7ff47;
+background: -webkit-radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+}
+@media (max-width: 768px){
+    .admin-card{
+        width:100%;
+    }
+}

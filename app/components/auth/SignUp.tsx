@@ -1,7 +1,7 @@
 'use client';
 import React, { Fragment } from 'react'
 import Title from '../utils/Title'
-import signUpLogic from '@/app/logic/auth/signUp';
+import signUpLogic from '@/logic/auth/signUp';
 import { Dialog, Transition } from '@headlessui/react';
 function SignUp() {
   const logic = signUpLogic()

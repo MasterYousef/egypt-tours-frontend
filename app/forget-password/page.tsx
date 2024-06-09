@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import im from "/public/image/forget-password.png";
-import forgetPasswordLogic from "../logic/forget-password/forgetPassword";
+import forgetPasswordLogic from "@/logic/forget-password/forgetPassword";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 export default function page() {

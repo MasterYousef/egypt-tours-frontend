@@ -2,13 +2,14 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-import createTourLogic from "@/logic/admin-create-tour/adminCreateTour";
 import { ToastContainer } from "react-toastify";
+import { oneTour } from "@/types/types";
+import updateTourLogic from "@/logic/Admin-Tours/updateTourLogic";
 
- function Page({token}:{token:string}) {
-  const logic = createTourLogic(token);
+ function AdminUpdateTourCard({token,tour}:{token:string,tour:oneTour}) {
+  const logic = updateTourLogic(token,tour);
   return (
-    <div className="flex justify-center items-center p-10 bg-zinc-200">
+    <div className="flex justify-center items-center p-10 bg-zinc-200 w-full">
       <div className="shadow-lg md:w-1/3 relative flex flex-col justify-center h-auto items-center  bg-white rounded  w-full ">
         <label htmlFor="img" className="cursor-pointer w-full img">
           <Image
@@ -33,6 +34,7 @@ import { ToastContainer } from "react-toastify";
           <div className="font-bold text-center md:text-md lg:text-2xl rounded p-3 ">
             <input
               placeholder="Name"
+              defaultValue={tour.title}
               name="name"
               type="text"
               min={1}
@@ -42,6 +44,7 @@ import { ToastContainer } from "react-toastify";
           <div className=" border-b  my-1 py-3">
             <input
               placeholder="number of days"
+              defaultValue={tour.duration}
               name="duration"
               type="number"
               min={1}
@@ -50,16 +53,8 @@ import { ToastContainer } from "react-toastify";
           </div>
           <div className=" border-b  my-1 py-3">
             <input
-              placeholder="number of guides"
-              name="guides"
-              type="number"
-              min={1}
-              className=" w-1/2 text-center rounded focus-within:outline-4 focus-visible:outline-yellow-500 text-xl"
-            />
-          </div>
-          <div className=" border-b  my-1 py-3">
-            <input
               placeholder="Max People Count"
+              defaultValue={tour.maxPeople}
               name="maxPeople"
               type="number"
               min={1}
@@ -67,8 +62,19 @@ import { ToastContainer } from "react-toastify";
             />
           </div>
           <div className=" border-b  my-1 py-3">
+            <input
+              placeholder="number of guides"
+              defaultValue={tour.guides}
+              name="guides"
+              type="number"
+              min={1}
+              className=" w-1/2 text-center rounded focus-within:outline-4 focus-visible:outline-yellow-500 text-xl"
+            />
+          </div>
+          <div className=" border-b  my-1 py-3">
             <textarea
               placeholder="description"
+              defaultValue={tour.description}
               name="description"
               minLength={10}
               maxLength={255}
@@ -80,12 +86,13 @@ import { ToastContainer } from "react-toastify";
                 selected={logic.selected}
                 onChange={logic.setDate}
                 dateFormat="dd/MM/yyyy"
-                className=" text-center cursor-pointer"
+                className=" text-center cursor-pointer text-xl"
               />
           </div>
           <div className="border-b my-1 py-3 ">
             <input
               placeholder="Price"
+              defaultValue={tour.price}
               name="price"
               type="number"
               min={1}
@@ -94,9 +101,9 @@ import { ToastContainer } from "react-toastify";
           </div>
           <button
             type="submit"
-            className=" w-1/3 p-1 my-2   bg-amber-300 ease-in-out duration-300 hover:bg-amber-500 hover:scale-105 rounded text-xl"
+            className=" w-1/2 p-1 my-2   bg-amber-300 ease-in-out duration-300 hover:bg-amber-500 hover:scale-105 rounded text-xl"
           >
-            Add Tour
+            Update Tour
           </button>
         </form>
       </div>
@@ -105,4 +112,4 @@ import { ToastContainer } from "react-toastify";
   );
 }
 
-export default Page;
+export default AdminUpdateTourCard;

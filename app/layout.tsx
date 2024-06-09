@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 import AdminMenu from "./components/utils/AdminMenu";
 import UserMenu from "./components/utils/UserMenu";
 import Menu from "./components/utils/Menu";
-import GetUserData from "./logic/GetUserData";
+import GetUserData from "@/logic/GetUserData";
 import "react-datepicker/dist/react-datepicker.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -31,7 +31,6 @@ export default function RootLayout({
         {children}
         <Footer/>
       </div>
-      <ToastContainer/>
         </body>
     </html>
   )

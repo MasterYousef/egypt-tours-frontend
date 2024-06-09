@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
 import im from "/public/image/verfiy-code.png";
-import verfiyCodeLogic from "@/app/logic/forget-password/verfiyCode";
+import verfiyCodeLogic from "@/logic/forget-password/verfiyCode";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import Error401 from "@/app/error";
 export default function page() {
   const logic = verfiyCodeLogic();
   if(localStorage.getItem("email")){
@@ -83,7 +82,7 @@ export default function page() {
     </div>
   );
   }else{
-    return <Error401 message="please enter your email first to sent code"/>
+    throw new Error("please enter your email first to sent code")
   }
 
 }

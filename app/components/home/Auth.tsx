@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import im from '/public/image/h3.png'
 import LogIn from '../auth/LogIn'
 import SignUp from '../auth/SignUp';
+import { ToastContainer } from 'react-toastify';
 function Auth() {
   const [isMember, setIsMember] = useState<boolean>(true)
   return (
@@ -24,6 +25,7 @@ function Auth() {
           </p>)
         }
         </div>
+      <ToastContainer/>
     </div>
   )
 }

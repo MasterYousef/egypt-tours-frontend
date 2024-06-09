@@ -1,9 +1,8 @@
 'use client';
 import React, { useState ,Fragment } from 'react'
 import Title from "@/app/components/utils/Title"
-import changePasswordLogic from '@/app/logic/forget-password/changePassword';
+import changePasswordLogic from '@/logic/forget-password/changePassword';
 import { Dialog, Transition } from '@headlessui/react';
-import Error401 from '@/app/error';
 function LogIn() {
   const logic = changePasswordLogic()
 if(localStorage.getItem("email")){
@@ -102,7 +101,7 @@ if(localStorage.getItem("email")){
     </div>
  )
 }else{
-  return <Error401 message='The page could not be found'/>
+  throw new Error("can't find this route")
 }
 }
 export default LogIn

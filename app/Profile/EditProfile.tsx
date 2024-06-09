@@ -1,12 +1,13 @@
 "use client";
 import React, { Fragment } from "react";
-import { user } from "../types/types";
-import EditProfileLogic from "../logic/profile/EditProfile";
+import { user } from "../../types/types";
+import EditProfileLogic from "@/logic/profile/EditProfile";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
+import { ToastContainer } from "react-toastify";
 
-export default function Edit({ user , token }: { user: user ,token:string }) {
-  const logic = EditProfileLogic(user,token);
+export default function Edit({ user, token }: { user: user; token: string }) {
+  const logic = EditProfileLogic(user, token);
   return (
     <div>
       <button className="hov2 p-3" onClick={() => logic.setIsOpen(true)}>
@@ -76,10 +77,16 @@ export default function Edit({ user , token }: { user: user ,token:string }) {
                           onChange={logic.changeEmail}
                         />
                       </div>
-                      <button onClick={logic.reset} className="w-1/2 rounded mb-3  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 ease-in-out duration-300">
+                      <button
+                        onClick={logic.reset}
+                        className="w-1/2 rounded mb-3  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 ease-in-out duration-300"
+                      >
                         reset
                       </button>
-                      <button onClick={logic.editProfile} className="w-1/2 rounded  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 ease-in-out duration-300">
+                      <button
+                        onClick={logic.editProfile}
+                        className="w-1/2 rounded  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 hover:scale-110 ease-in-out duration-300"
+                      >
                         Submit
                       </button>
                       <i
@@ -94,6 +101,7 @@ export default function Edit({ user , token }: { user: user ,token:string }) {
           </div>
         </Dialog>
       </Transition>
+      <ToastContainer/>
     </div>
   );
 }

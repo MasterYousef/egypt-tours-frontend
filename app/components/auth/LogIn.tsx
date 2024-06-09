@@ -1,7 +1,7 @@
 'use client';
 import React, { useState ,Fragment } from 'react'
 import Title from '../utils/Title'
-import loginLogic from '@/app/logic/auth/login';
+import loginLogic from '@/logic/auth/login';
 import { Dialog, Transition } from '@headlessui/react';
 function LogIn() {
   const logic = loginLogic()

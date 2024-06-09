@@ -1,5 +1,5 @@
 import "@/style/adminCreateTour.css";
-import GetUserData from "../logic/GetUserData";
+import GetUserData from "@/logic/GetUserData";
 import React, { ReactElement, ReactNode } from "react";
 import Page from "./page";
 function layout() {

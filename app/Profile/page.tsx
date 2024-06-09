@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import GetUserData from "../logic/GetUserData";
+import GetUserData from "@/logic/GetUserData";
 import Title from "../components/utils/Title";
 import Edit from "./EditProfile";
 import "@/style/profile.css"

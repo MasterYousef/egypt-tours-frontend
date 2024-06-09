@@ -4,7 +4,7 @@ import Auth from "./components/home/Auth";
 import Features from "./components/home/Features";
 import Landing from "./components/home/Landing";
 import Tours from "./components/home/Tours";
-import GetUserData from "./logic/GetUserData";
+import GetUserData from "@/logic/GetUserData";
 export default function Home() {
   const {user} = GetUserData()
   return (
@@ -14,7 +14,6 @@ export default function Home() {
     <Features/>
     <Tours/>
     {user ? null : <Auth/>}
-    <ToastContainer/>
     </main>
   );
 }
