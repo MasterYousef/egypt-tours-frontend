@@ -1,44 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
-.card-im{
-    clip-path: polygon(0% 0%, 100% 0%, 100% 80.8%, 0% 100%);
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+.card-im {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80.8%, 0% 100%);
 }
-.card-head{
-    background: -webkit-linear-gradient(#f7ff47, #ffb947);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.card-head {
+  background: -webkit-linear-gradient(#f7ff47, #ffb947);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform: scale(0.8);
 }
-.tour-card{
-    width: calc(100%/3 - 30px);
-    height:500px;
-    transform-style: preserve-3d;
-    transition: all ease-in-out 0.5s;
+.tour-card {
+  width: calc(100% / 3 - 30px);
+  min-height: 550px;
+  transform-style: preserve-3d;
+  transition: transform ease-in-out 0.5s;
 }
-.card-front{
-    backface-visibility: hidden;
+.card-front {
+  backface-visibility: hidden;
 }
-.tour-card:hover{
-    transform: rotateY(-180deg);
+.tour-card:hover {
+  transform: rotateY(-180deg);
 }
-.card-back{
-    background: #f7ff47;
-    background: -webkit-radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
-    background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
-    transform: rotateY(180deg);
+.card-back {
+  background: #f7ff47;
+  background: -webkit-radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+  background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
+  transform: rotateY(180deg);
 }
-.font{
-    font-family: 'Nanum Myeongjo', serif;
+.font {
+  font-family: "Nanum Myeongjo", serif;
 }
-@media (max-width: 768px){
-    .tour-card{
-        width:80%;
-        height:32rem;
-        transform-style:unset;
-    }
-    .tour-card:hover{
-        transform: rotateY(0);
-    }
-    .card-back{
-        transform: rotateY(0);
-        clip-path: polygon(0% 19.2%, 100% 0%, 100% 100%, 0% 100%);
-    }
+.swiper-pagination-bullet-active-main {
+  background-color:#ffb947!important;
+}
+@media (max-width: 768px) {
+  .tour-card {
+    width: 80%;
+    height: 32rem;
+    transform-style: unset;
+  }
+  .tour-card:hover {
+    transform: rotateY(0);
+  }
+  .card-back {
+    transform: rotateY(0);
+    clip-path: polygon(0% 19.2%, 100% 0%, 100% 100%, 0% 100%);
+  }
 }

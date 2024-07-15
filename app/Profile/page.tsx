@@ -1,12 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import GetUserData from "@/logic/GetUserData";
+import GetUserAction from "@/actions/GetUserAction";
 import Title from "../components/utils/Title";
 import Edit from "./EditProfile";
-import "@/style/profile.css"
+import "@/style/profile.css";
 
 async function page() {
-  const {user,token} = GetUserData();
+  const { user, token } = GetUserAction();
   return (
     <div className="main p-10">
       <div className="w-full flex flex-col p-5 profile rounded justify-center items-center mb-10 ">
@@ -21,7 +21,7 @@ async function page() {
           <p className="text-2xl font-bold mb-3">{user?.username}</p>
           <p className="mb-5">{user?.email}</p>
         </div>
-        <Edit user={user} token={token}/>
+        <Edit user={user} token={token} />
       </div>
       <div className="w-full flex flex-col items-center">
         <Title text={"Booked tours"} />

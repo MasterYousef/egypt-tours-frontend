@@ -10,7 +10,7 @@ async function page({searchParams}:{searchParams?:{
   const query = searchParams as query
   const {data,paginationResult} =await getToursAction(6,query) as tourResponse
   return (
-    <div className="py-5 pt-20 md:px-5 bg-gray-200 grid grid-cols-12">
+    <div className="py-5 pt-20 md:px-5 main grid grid-cols-12">
       <ToursSearchOptions/>
       <AdminToursContainer tours={data}/>
       <Pagination pagination={paginationResult} />

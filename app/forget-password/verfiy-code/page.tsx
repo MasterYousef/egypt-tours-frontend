@@ -8,7 +8,7 @@ export default function page() {
   const logic = verfiyCodeLogic();
   if(localStorage.getItem("email")){
       return (
-    <div className="h-screen bg-zinc-200 flex justify-center items-center">
+    <div className="h-screen main flex justify-center items-center">
       <div className="bg-white w-1/2 flex flex-1 md:flex-none flex-col justify-center items-center rounded p-5">
         <Image
           width={1000}

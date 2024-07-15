@@ -7,10 +7,10 @@ function UserMenu() {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-  const logout = async()=>{
-    await useLogOut()
-    window.location.href = "/"
-  }
+  const logout = async () => {
+    await useLogOut();
+    window.location.href = "/";
+  };
   return (
     <>
       <div
@@ -36,30 +36,27 @@ function UserMenu() {
     }`}
       >
         <Link
-          href="Profile"
+          href="/"
+          onClick={() => setIsOpen(false)}
+          className="mb-3 py-2 px-3 hov1"
+        >
+          home
+        </Link>
+        <Link
+          href="/Profile"
           onClick={() => setIsOpen(false)}
           className="mb-3 py-2 px-3 hov1 "
         >
           Profile
         </Link>
         <Link
-          href="All-Tours"
+          href="/All-Tours"
           onClick={() => setIsOpen(false)}
           className="mb-3 py-2 px-3 hov1"
         >
-          Discover all tours
+          All tours
         </Link>
-        <Link
-          href="All-Storis"
-          onClick={() => setIsOpen(false)}
-          className="mb-3 py-2 px-3 hov1"
-        >
-          Stories
-        </Link>
-        <button
-          onClick={() => logout()}
-          className="mb-3 py-2 px-3 hov1"
-        >
+        <button onClick={() => logout()} className="mb-3 py-2 px-3 hov1">
           Log Out
         </button>
       </div>

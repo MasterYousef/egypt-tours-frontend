@@ -28,7 +28,7 @@ function Pagination({ pagination }: { pagination: paginationResult }) {
         previousLabel="< prev"
         renderOnZeroPageCount={null}
         pageRangeDisplayed={5}
-        className="flex col-span-12 md:col-start-6 md:col-end-12 w-full justify-center items-center "
+        className="flex col-span-12 md:col-start-6 md:col-end-12 w-full justify-center items-center my-2 "
         pageLinkClassName={
           "page-link px-3 py-1 border border-gray-300 rounded-md hover:bg-amber-300"
         }

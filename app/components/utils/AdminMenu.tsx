@@ -7,10 +7,10 @@ function AdminMenu() {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-  const logout = async()=>{
-    await useLogOut()
-    window.location.href = "/"
-  }
+  const logout = async () => {
+    await useLogOut();
+    window.location.href = "/";
+  };
   return (
     <>
       <div
@@ -36,30 +36,48 @@ function AdminMenu() {
     }`}
       >
         <Link
-          href="Profile"
+          href="/"
           onClick={() => setIsOpen(false)}
-          className="mb-3 py-2 px-3 hov1"
+          className="mb-2 py-2 px-3 hov1"
+        >
+          home
+        </Link>
+        <Link
+          href="/Profile"
+          onClick={() => setIsOpen(false)}
+          className="mb-2 py-2 px-3 hov1"
         >
           Profile
         </Link>
         <Link
-          href="Admin-Tours"
+          href="/change-password"
           onClick={() => setIsOpen(false)}
-          className="mb-3 py-2 px-3 hov1 "
+          className="mb-2 py-2 px-3 hov1 "
+        >
+          change password
+        </Link>
+        <Link
+          href="/Admin-Tours"
+          onClick={() => setIsOpen(false)}
+          className="mb-2 py-2 px-3 hov1 "
         >
           All Tours
         </Link>
         <Link
-          href="admin-create-tour"
+          href="/admin-create-tour"
           onClick={() => setIsOpen(false)}
-          className="mb-3 py-2 px-3 hov1 "
+          className="mb-2 py-2 px-3 hov1 "
         >
           Add New Tour
         </Link>
-        <button
-          onClick={() => logout()}
-          className="mb-3 py-2 px-3 hov1"
+        <Link
+          href="/coupon"
+          onClick={() => setIsOpen(false)}
+          className="mb-2 py-2 px-3 hov1 "
         >
+          coupons
+        </Link>
+        <button onClick={() => logout()} className="mb-3 py-2 px-3 hov1">
           Log Out
         </button>
       </div>

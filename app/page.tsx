@@ -4,16 +4,16 @@ import Auth from "./components/home/Auth";
 import Features from "./components/home/Features";
 import Landing from "./components/home/Landing";
 import Tours from "./components/home/Tours";
-import GetUserData from "@/logic/GetUserData";
+import GetUserAction from "@/actions/GetUserAction";
 export default function Home() {
-  const {user} = GetUserData()
+  const { user } = GetUserAction();
   return (
-    <main className="main" >
-    <Landing/>
-    <AboutTours/>
-    <Features/>
-    <Tours/>
-    {user ? null : <Auth/>}
+    <main className="main">
+      <Landing />
+      <AboutTours />
+      <Features />
+      <Tours user={user?.role} />
+      {user ? null : <Auth />}
     </main>
   );
 }

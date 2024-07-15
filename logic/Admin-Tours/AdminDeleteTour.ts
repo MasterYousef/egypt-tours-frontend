@@ -15,10 +15,9 @@ const confirmDelete = async (user:string)=>{
     const res = await useDeleteData<{name:string}>(`/api/v1/tour/${id}`,user)
     setLoading(false)
     setOpen(false)
-    console.log(res);
     if(res.name !== "AxiosError"){
         toast.success("tour deleted succesfly")
-        setTimeout(()=>{refresh()},2000)
+        setTimeout(()=>{refresh()},1000)
     }else{
         handleErrors(res as unknown as ErrorResponse)
     }

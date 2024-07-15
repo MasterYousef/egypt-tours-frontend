@@ -6,26 +6,9 @@ import { ToastContainer } from "react-toastify";
 import Link from "next/link";
 import { oneTour } from "@/types/types";
 import AdminDeleteTour from "@/logic/Admin-Tours/AdminDeleteTour";
+import rate from "../utils/rate";
 function AdminTourCard({ tour,user }: { tour: oneTour,user:string }) {
   const logic = AdminDeleteTour(tour._id);
-  const rate = (avg: number): ReactNode => {
-    const rate = [];
-    const unRate = [];
-    for (let i = 0; i < avg; i++) {
-      rate.push(<i className="fa-solid fa-star text-yellow-500" key={i}></i>);
-    }
-    for (let i = 0; i < 5 - avg; i++) {
-      unRate.push(
-        <i className="fa-regular fa-star text-yellow-500" key={i}></i>
-      );
-    }
-    return (
-      <span>
-        {rate}
-        {unRate}
-      </span>
-    );
-  };
   const date = tour.start
     .replace("T00:00:00.000Z", "")
     .split("-")

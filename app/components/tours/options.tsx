@@ -23,23 +23,23 @@ function Options({
       </div>
       <div className="w-full px-4 my-10">
         <p className="mb-5">start Dates:</p>
-        <div className="my-3">
+        <div className="my-3 flex flex-col">
         <span className="me-3">From:</span>
         <ReactDatePicker
           selected={logic.from}
           onChange={logic.setFromDate}
           dateFormat="dd/MM/yyyy"
-          className=" text-center w-full cursor-pointer focus-within:outline-amber-400 rounded"
+          className=" text-center w-full cursor-pointer focus-within:outline-amber-400 rounded md:w-5/6"
         />
         <button onClick={()=>logic.clearFromDate()} className="w-full md:w-5/6 mt-3 bg-amber-300 ease-in-out duration-300 hover:bg-amber-500 hover:scale-105 rounded">clear</button>
         </div>
-        <div>
+        <div className="flex flex-col">
         <span className="me-8">To:</span>
         <ReactDatePicker
           selected={logic.to}
           onChange={logic.setToDate}
           dateFormat="dd/MM/yyyy"
-          className=" text-center w-full cursor-pointer focus-within:outline-amber-400 rounded"
+          className=" text-center w-full cursor-pointer focus-within:outline-amber-400 rounded md:w-5/6"
         />
         <button onClick={()=>logic.clearToDate()} className=" w-full md:w-5/6 mt-3 bg-amber-300 ease-in-out duration-300 hover:bg-amber-500 hover:scale-105 rounded">clear</button>
         </div>

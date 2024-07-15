@@ -5,7 +5,7 @@ import WordSearch from "./wordSearch"
 import Options from "./options"
 
 function ToursSearchOptions() {
-    const logic = searchTours(6)
+    const logic = searchTours()
   return (
     <>
     <div className="col-span-12 ">

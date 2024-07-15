@@ -30,9 +30,10 @@ interface oneTour {
   guides: number;
   start: string;
   role: string;
+  images?: string[];
   ratingsAverage?: number;
   ratingsQuantity?: number;
-};
+}
 interface cookie {
   name: string;
   value: string;
@@ -44,8 +45,8 @@ type errors = {
 type ErrorResponse = {
   response: {
     data: {
-      errors: errors[];
-      message: string;
+      errors?: errors[];
+      message?: string;
     };
   };
 };
@@ -57,9 +58,26 @@ interface user {
   image: string;
   role: string;
 }
+interface rate {
+  _id: string;
+  comment: string;
+  rate: number;
+  tour: string;
+  user: user
+}
+interface rateResponse {
+  status: string;
+  data: rate;
+}
+interface reviews {
+  status: string;
+  data: rate[];
+  result: number;
+  paginationResult: paginationResult;
+}
 interface tour {
   status: string;
-  data: oneTour
+  data: oneTour;
 }
 interface userResponse {
   status: string;
@@ -70,18 +88,34 @@ interface resMessage {
   status: string;
   message: string;
 }
-interface paginationResult{
-  page:number;
-  limit:number;
-  pages:number;
-  prev?:number;
-  next?:number;
+interface paginationResult {
+  page: number;
+  limit: number;
+  pages: number;
+  prev?: number;
+  next?: number;
 }
 interface tourResponse {
   status: string;
-  result:number;
-  data:oneTour[];
-  paginationResult:paginationResult
+  result: number;
+  data: oneTour[];
+  paginationResult: paginationResult;
+}
+interface coupon {
+  _id:string;
+  name:string;
+  discount:number;
+  expire:string
+}
+interface couponRes {
+  status: string;
+  paginationResult: paginationResult;
+  data:coupon[]
+}
+type CouponState = {
+  success?: string;
+  error?: string;
+  errors?: errors[];
 }
 interface query {
   sort?: string;
@@ -93,6 +127,7 @@ export type {
   signUpForm,
   cookie,
   ErrorResponse,
+  errors,
   url,
   user,
   userResponse,
@@ -102,5 +137,10 @@ export type {
   tourResponse,
   oneTour,
   query,
-  paginationResult
+  paginationResult,
+  rateResponse,
+  reviews,
+  coupon,
+  couponRes,
+  CouponState
 };

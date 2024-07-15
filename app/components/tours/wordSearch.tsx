@@ -13,7 +13,7 @@ function WordSearch({setWord,word}:{setWord:Dispatch<SetStateAction<string>>,wor
         autoComplete="text"
         placeholder="Tour Name"
         onChange={(e)=>setWord(e.target.value)}
-        defaultValue={word}
+        value={word}
         className="px-2 se-in block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:out  focus-within:outline-amber-400 sm:text-sm sm:leading-6"
       />
     </div>

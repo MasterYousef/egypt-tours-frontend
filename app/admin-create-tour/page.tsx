@@ -1,14 +1,14 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import createTourLogic from "@/logic/admin-create-tour/adminCreateTour";
 import { ToastContainer } from "react-toastify";
+import ImageUploader from "../components/utils/ImageUploader";
 
- function Page({token}:{token:string}) {
-  const logic = createTourLogic(token);
+  function Page() {
+  const logic = createTourLogic();
   return (
-    <div className="flex justify-center items-center p-10 bg-zinc-200">
+    <div className="flex justify-center items-center p-10 main">
       <div className="shadow-lg md:w-1/3 relative flex flex-col justify-center h-auto items-center  bg-white rounded  w-full ">
         <label htmlFor="img" className="cursor-pointer w-full img">
           <Image
@@ -26,6 +26,7 @@ import { ToastContainer } from "react-toastify";
           name="img"
           onChange={logic.changeImg}
         ></input>
+        <ImageUploader file={logic.file} setFile={logic.setFile} images={logic.images} setImages={logic.setImages}/>
         <form
           className=" w-full pb-3 text-center mx-5 text-2xl card-details border-t"
           onSubmit={logic.handleSubmit}
@@ -80,7 +81,7 @@ import { ToastContainer } from "react-toastify";
                 selected={logic.selected}
                 onChange={logic.setDate}
                 dateFormat="dd/MM/yyyy"
-                className=" text-center cursor-pointer"
+                className=" text-center cursor-pointer text-xl w-full"
               />
           </div>
           <div className="border-b my-1 py-3 ">

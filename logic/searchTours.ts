@@ -1,7 +1,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 type keyword = { word: HTMLFormElement };
-function searchTours(limit?: number) {
+function searchTours() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -16,7 +16,7 @@ function searchTours(limit?: number) {
   }
   if (word) {
     params.set("keyword", word);
-  } else if (sort === "") {
+  } else if (word === "") {
     params.delete("keyword");
   }
   if (search.length > 0) {
@@ -30,8 +30,6 @@ function searchTours(limit?: number) {
         params.set(key, value);
       }
     });
-  } else if (sort === "") {
-    params.delete("keyword");
   }
   replace(`${pathname}?${params}`);
   return { setSort, word, setWord, search, setSearch };

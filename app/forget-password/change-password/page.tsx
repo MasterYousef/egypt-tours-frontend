@@ -7,7 +7,7 @@ function LogIn() {
   const logic = changePasswordLogic()
 if(localStorage.getItem("email")){
   return (
-    <div className='h-screen bg-zinc-200 flex justify-center items-center'>
+    <div className='h-screen main flex justify-center items-center'>
         <div className="flex flex-1 rounded md:flex-none flex-col justify-center px-6 py-12 lg:px-8 bg-white">
        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
          <Title text='change your password'/>

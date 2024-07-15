@@ -16,6 +16,27 @@ input::-webkit-inner-spin-button {
   scale: 100;
   transition:all 1s;
 }
+.btn{
+  background-color: rgb(252 211 77 / 1);
+  border-radius: 5px;
+  font-weight: 500;
+  transition-duration: 300ms;
+}
+.btn:hover{
+  background-color: rgb(251 191 36 / 1);
+  transform: scale(1.1);
+}
+.btn-2{
+  background-color: rgb(82 82 91 / 1);
+  border-radius: 5px;
+  font-weight: 500;
+  transition-duration: 300ms;
+  color: white;
+}
+.btn-2:hover{
+  background-color: rgb(47, 47, 52);
+  transform: scale(1.1);
+}
 .hov1 {
   letter-spacing: 0;
 }
@@ -118,16 +139,7 @@ background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
   -webkit-text-fill-color: transparent;
 }
 .per{
-  perspective:900px;
-}
-.btn{
-  background: -webkit-linear-gradient(#f7ff47, #ffb947);
-  padding: 10px;
-  font-weight: 800;
-  transition: all ease-in-out 0.4s;
-}
-.btn:hover{
-  transform: scale(1.2);
+  perspective:700px;
 }
 .custom-toast {
   font-size:15px;
@@ -138,13 +150,17 @@ background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
   background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
 }
 .react-datepicker__day--selected{
-  background-color:  #fcd34d ;
+  background-color:  #ffd755 !important;
 }
 
 .react-datepicker__day--selected:hover {
-  background-color:  rgb(245 158 11 / var(--tw-bg-opacity));
+  background-color:  rgb(245 158 11 / 1) !important;
 }
 
 .react-datepicker__day:hover{
-  background-color:  rgb(245 158 11 / var(--tw-bg-opacity));
+  background-color:  rgb(245 158 11 / 1) !important;
+}
+.react-datepicker__day--keyboard-selected{
+  background-color:  #ffd75570 !important;
+
 }

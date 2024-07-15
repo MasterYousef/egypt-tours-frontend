@@ -1,11 +1,17 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import im from "/public/image/h2.png";
 import { ErrorResponse, tour, tourForm } from "@/types/types";
 import { useInsertData } from "@/hooks/useInsertData";
 import { toast } from "react-toastify";
 import handleErrors from "@/hooks/handleErrors";
-const createTourLogic = (token: string) => {
+import GetUserAction from "@/actions/GetUserAction";
+import { useRouter } from "next/navigation";
+const createTourLogic = () => {
+  const [token, settoken] = useState("");
+  const { refresh } = useRouter();
   const [selected, setSelected] = useState(new Date());
+  const [images, setImages] = useState<string[]>([]);
+  const [file, setFile] = useState<File[]>([]);
   const [img, setImg] = useState(im.src);
   const data = useRef(new FormData());
   const changeImg = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,6 +49,11 @@ const createTourLogic = (token: string) => {
         selected.toLocaleDateString("en-GB").split("/").reverse().join("-")
       );
       data.current.set("duration", event.target.duration.value);
+      file.map((im) => {
+        if(!data.current.getAll("images").includes(im)){
+          data.current.append("images", im);
+        }
+      });
       const res = await useInsertData<tour>(
         "/api/v1/tour",
         data.current,
@@ -51,13 +62,34 @@ const createTourLogic = (token: string) => {
       if (res.status === "success") {
         toast.success("tour created successfully");
         setTimeout(() => {
-          window.location.reload();
+          refresh();
         }, 2000);
       } else {
         handleErrors(res as unknown as ErrorResponse);
       }
     }
   };
-  return { selected, setSelected, img, changeImg, handleSubmit, setDate };
+  const getToken = async () => {
+    const { token } = await GetUserAction();
+    if (token) {
+      settoken(token);
+    }
+  };
+  useEffect(() => {
+    getToken();
+  });
+  return {
+    selected,
+    setSelected,
+    img,
+    changeImg,
+    handleSubmit,
+    setDate,
+    file,
+    setFile,
+    data,
+    images,
+    setImages
+  };
 };
 export default createTourLogic;

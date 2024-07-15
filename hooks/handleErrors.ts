@@ -3,6 +3,7 @@ import { ErrorResponse } from "../types/types";
 
 const handleErrors = (error: ErrorResponse) => {
   console.log(error);
+  
   if (error.response) {
     if (error.response.data.errors) {
       error.response.data.errors.forEach((e) => {
