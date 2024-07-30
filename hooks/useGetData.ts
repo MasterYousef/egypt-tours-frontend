@@ -1,4 +1,3 @@
-"use server";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import BaseUrl from "../app/BaseUrl";
 import { url } from "../types/types";
@@ -10,6 +9,8 @@ async function useGetData<T>(url: url,token?:string): Promise<T> {
     const res: AxiosResponse<T> = await BaseUrl.get(url,config);
     return res.data;
   } catch (error: any) {
+    console.log(error);
+    
     return error;
   }
 }

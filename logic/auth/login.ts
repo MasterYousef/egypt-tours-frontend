@@ -1,11 +1,13 @@
 import handleErrors from "@/hooks/handleErrors";
 import { useInsertData } from "@/hooks/useInsertData";
 import { ErrorResponse, loginForm, userResponse } from "@/types/types";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 const loginLogic = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { refresh } = useRouter();
   const handleSubmit = async (
     e: React.ChangeEvent<loginForm> | React.FormEvent<HTMLFormElement>
   ) => {
@@ -22,11 +24,13 @@ const loginLogic = () => {
       if (res.status === "success") {
         toast.success("user has been login successfully", {
           className: "h-16 w-70 text-sm",
+          autoClose:1000
         });
         setIsOpen(false);
+        window.scrollTo(0,0)
         setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+          refresh();
+        },1200);
       } else {
         handleErrors(res as unknown as ErrorResponse);
       }

@@ -26,3 +26,8 @@
 .im:hover::before {
   opacity: 1;
 }
+.order{
+  margin: 5px 0;
+  font-size: 1.2rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

@@ -1,10 +1,10 @@
 "use client";
 import React, { Fragment } from "react";
-import { user } from "../../types/types";
 import EditProfileLogic from "@/logic/profile/EditProfile";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { ToastContainer } from "react-toastify";
+import { user } from "@/types/types";
 
 export default function Edit({ user, token }: { user: user; token: string }) {
   const logic = EditProfileLogic(user, token);

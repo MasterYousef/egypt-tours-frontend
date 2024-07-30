@@ -56,7 +56,7 @@ interface user {
   password: string;
   email: string;
   image: string;
-  role: string;
+  role: "user"|"admin";
 }
 interface rate {
   _id: string;
@@ -122,6 +122,36 @@ interface query {
   keyword?: string;
   scroll?: string;
 }
+type link = {
+  href: 'https://api.sandbox.paypal.com/v1/payments/payment/PAYID-M2LT2GY25964120YV4591733',
+  rel: 'self',
+  method: 'GET'
+}
+interface payment {
+  payment: {
+    id: string,
+    intent: string,
+    state: string,
+    payer: { payment_method: 'paypal', payer_info: [Object] },
+    transactions: [ [Object] ],
+    create_time: Date,
+    links: [ link,link,link ],
+    httpStatusCode: 201
+  }
+}
+interface order {
+  _id: string;
+  tour: oneTour;
+  user:user;
+  price:number;
+  isPaid:Boolean
+}
+interface orderResponse {
+  status: string;
+  result:number;
+  paginationResult:paginationResult;
+  data:order[]
+}
 export type {
   loginForm,
   signUpForm,
@@ -142,5 +172,8 @@ export type {
   reviews,
   coupon,
   couponRes,
-  CouponState
+  CouponState,
+  payment,
+  order,
+  orderResponse
 };

@@ -1,11 +1,13 @@
 import handleErrors from "@/hooks/handleErrors";
 import { useInsertData } from "@/hooks/useInsertData";
 import { ErrorResponse, signUpForm, userResponse } from "@/types/types";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 const signUpLogic = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { refresh } = useRouter();
   type FormEventAlias =
     | React.ChangeEvent<signUpForm>
     | React.FormEvent<HTMLFormElement>;
@@ -34,8 +36,8 @@ const signUpLogic = () => {
         });
         setIsOpen(false);
         setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+          refresh();
+        }, 1000);
       } else {
         handleErrors(res as unknown as ErrorResponse);
       }

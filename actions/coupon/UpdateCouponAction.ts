@@ -30,9 +30,7 @@ async function UpdateCouponAction(id:string,prevState: any, formData: FormData) 
     }else{
         return {error:"you need to login first."}
     }
-
         return{error:"please try again latter"}
-
 }
 
 export default UpdateCouponAction

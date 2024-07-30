@@ -7,8 +7,8 @@ import { ToastContainer } from "react-toastify";
 function AddCoupon() {
 const logic = AddCouponLogic()
   return (
-    <div className='w-1/2 flex justify-end h-screen mt-16'>
-    <form className='my-3 flex flex-col w-1/2' action={logic.formAction}>
+    <div className='lg:w-1/2 w-full flex justify-center lg:justify-end h-auto lg:h-screen mt-16'>
+    <form className='my-3 flex flex-col w-3/4 lg:w-1/2' action={logic.formAction}>
       <input required name='name' maxLength={30} minLength={2} type='text' placeholder='coupon name' className='p-1 my-2 focus-within:outline-amber-400 text-center'/>
       <input required name='discount' max="100" min={5} type='number' placeholder='discount' className='p-1 my-2 focus-within:outline-amber-400 text-center'/>
       <ReactDatePicker

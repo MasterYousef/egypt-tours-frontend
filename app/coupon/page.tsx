@@ -17,8 +17,8 @@ async function page({
   const page = (searchParams?.page as unknown as number) * 1;
   const logic = await couponLogic(token, page);
   return (
-    <div className="main flex p-5">
-      <div className="w-1/2 mt-16">
+    <div className="main flex flex-col-reverse lg:flex-row p-5">
+      <div className="lg:w-1/2 w-full mt-16">
         <Title text="coupons" />
         {logic.coupons?.data.length ? (
           logic.coupons.data.map((coupon) => <CouponCard coupon={coupon} token={token} />)

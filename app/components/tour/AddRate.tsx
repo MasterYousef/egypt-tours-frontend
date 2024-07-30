@@ -75,7 +75,6 @@ function AddRate({ user,token }: { user: user,token:string }) {
           </div>
         </Dialog>
       </Transition>
-      <ToastContainer/>
     </div>
   );
 }

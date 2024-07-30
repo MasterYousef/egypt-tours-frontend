@@ -1,15 +1,18 @@
 "use client";
 import useLogOut from "@/hooks/useLogOut";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 function AdminMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter()
   const toggle = () => {
     setIsOpen(!isOpen);
   };
   const logout = async () => {
     await useLogOut();
-    window.location.href = "/";
+    router.replace("/")
+    router.refresh()
   };
   return (
     <>
