@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { ErrorResponse } from "../types/types";
 
-const handleErrors = (error: ErrorResponse) => {
+const handleErrors = (error: ErrorResponse) => {  
   if (error.response) {
     if (error.response.data.errors) {
       error.response.data.errors.forEach((e) => {

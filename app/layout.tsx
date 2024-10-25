@@ -23,6 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const { user } = GetUserAction();
+  console.log(user);
+  
   return (
     <html lang="en">
       <body className={`${inter.className} `}>

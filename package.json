@@ -26,6 +26,7 @@
     "react-paginate": "^8.2.0",
     "react-stars": "^2.2.5",
     "react-toastify": "^10.0.5",
+    "sharp": "^0.33.5",
     "styled-components": "^6.1.11",
     "swiper": "^11.1.4"
   },

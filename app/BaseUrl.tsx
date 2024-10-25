@@ -1,3 +1,5 @@
 import axios from "axios";
-const BaseUrl = axios.create({baseURL:"http://localhost:8000"});
-export default BaseUrl
+const BaseUrl = axios.create({
+  baseURL: "https://egypt-tours-backend.onrender.com",
+});
+export default BaseUrl;

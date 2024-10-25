@@ -10,9 +10,6 @@
 .se-in:focus-within{
     outline: solid #fbbf24 3px;
 }
-.rate:hover .hs{
-    color: #fbbf24;
-}
 .card-details{
     font-size: 10px;
 }

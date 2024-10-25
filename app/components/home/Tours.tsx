@@ -7,7 +7,7 @@ import { tourResponse } from '@/types/types'
 
 async function Tours({user}:{user?:string}) {
   const {data} = await getToursAction(3) as tourResponse
-  if(data){
+  if(data?.length >= 1){
     return (
       <div className={`flex flex-col justify-center items-center`}>
           <Title text='MOST POPULAR TOURS'/>

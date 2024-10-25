@@ -24,13 +24,13 @@ const loginLogic = () => {
       if (res.status === "success") {
         toast.success("user has been login successfully", {
           className: "h-16 w-70 text-sm",
-          autoClose:1000
+          autoClose:1500
         });
         setIsOpen(false);
-        window.scrollTo(0,0)
-        setTimeout(() => {
-          refresh();
-        },1200);
+        // window.scrollTo(0,0)
+        // setTimeout(() => {
+        //   refresh();
+        // },1000);
       } else {
         handleErrors(res as unknown as ErrorResponse);
       }

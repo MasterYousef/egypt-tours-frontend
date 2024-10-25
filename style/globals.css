@@ -156,7 +156,9 @@ background: radial-gradient(circle, #f7ff47 0%, #ffb947 100%);
 .react-datepicker__day--selected:hover {
   background-color:  rgb(245 158 11 / 1) !important;
 }
-
+.rate:hover .hs{
+  color: #fbbf24;
+}
 .react-datepicker__day:hover{
   background-color:  rgb(245 158 11 / 1) !important;
 }
