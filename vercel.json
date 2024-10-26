@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://egypt-tours-backend.vercel.app/1$"
+      "destination": "https://egypt-tours-backend.vercel.app/api/1$"
     }
   ]
 }
