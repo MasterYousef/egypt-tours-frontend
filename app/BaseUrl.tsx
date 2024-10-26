@@ -1,5 +1,5 @@
 import axios from "axios";
 const BaseUrl = axios.create({
-  baseURL: "/api",
+  baseURL: "/",
 });
 export default BaseUrl;
