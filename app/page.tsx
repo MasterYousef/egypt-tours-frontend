@@ -1,4 +1,3 @@
-import { ToastContainer } from "react-toastify";
 import AboutTours from "./components/home/AboutTours";
 import Auth from "./components/home/Auth";
 import Features from "./components/home/Features";
