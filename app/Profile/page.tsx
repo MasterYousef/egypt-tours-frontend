@@ -10,7 +10,7 @@ import AdminBookedTours from "../components/profile/AdminBookedTours";
 import { redirect } from "next/navigation";
 
 async function page() {
-  const { user, token } = GetUserAction();
+  const { user, token } = await GetUserAction();
   if(token){
     const res = await GetBookedTours(user._id, token, user.role);
     return (

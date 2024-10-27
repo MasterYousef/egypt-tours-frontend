@@ -1,6 +1,6 @@
 "use server";
 import useGetData from "@/hooks/useGetData";
-import { oneTour, paginationResult, query, tourResponse } from "@/types/types";
+import {  query, tourResponse } from "@/types/types";
 
 async function getToursAction(limit: number = 3,query:query={sort:"-ratingsAverage"}): Promise<tourResponse|false> {
     const data = Object.entries(query).map((e)=>{

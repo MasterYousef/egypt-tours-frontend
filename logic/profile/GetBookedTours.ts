@@ -1,3 +1,4 @@
+"use server"
 import useGetData from "@/hooks/useGetData";
 import { orderResponse } from "@/types/types";
 
