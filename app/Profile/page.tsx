@@ -19,6 +19,7 @@ async function page() {
           <Image
             src={user?.image}
             crossOrigin="anonymous"
+            unoptimized
             width={1000}
             height={1000}
             className="w-40 h-40 rounded-full "
