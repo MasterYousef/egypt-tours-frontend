@@ -3,7 +3,7 @@ import React from "react";
 import GetUserAction from "@/actions/GetUserAction";
 import Title from "../components/utils/Title";
 import "@/style/profile.css";
-import Edit from "../components/profile/EditProfile";
+// import Edit from "../components/profile/EditProfile";
 import GetBookedTours from "@/logic/profile/GetBookedTours";
 import TourCard from "../components/tours/TourCard";
 import AdminBookedTours from "../components/profile/AdminBookedTours";
@@ -27,7 +27,7 @@ async function page() {
             <p className="text-2xl font-bold mb-3">{user?.username}</p>
             <p className="mb-5">{user?.email}</p>
           </div>
-          <Edit user={user} token={token} />
+          {/* <Edit user={user} token={token} /> */}
         </div>
         <div className="w-full flex flex-col items-center">
           <Title text={"Booked tours"} />
