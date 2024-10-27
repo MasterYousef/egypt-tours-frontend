@@ -16,6 +16,13 @@ async function page() {
     return (
       <div className="main p-10">
         <div className="w-full flex flex-col p-5 profile rounded justify-center items-center mb-10 ">
+          <img
+            src={user?.image}
+            width={1000}
+            height={1000}
+            className="w-40 h-40 rounded-full "
+            alt={""}
+          />
           <Image
             src={user?.image}
             width={1000}
