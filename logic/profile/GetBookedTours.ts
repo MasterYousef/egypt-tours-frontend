@@ -12,7 +12,7 @@ async function GetBookedTours(
     if (res.status === "success") {
       return res;
     } else {
-      throw new Error("error can't get Booked tours");
+      return{error:"error can't get Booked tours"}
     }
   } else {
     const res = await useGetData<orderResponse>(
@@ -22,7 +22,7 @@ async function GetBookedTours(
     if (res.status === "success") {
       return res;
     } else {
-      throw new Error("error can't get Booked tours");
+      return{error:"error can't get Booked tours"}
     }
   }
 }

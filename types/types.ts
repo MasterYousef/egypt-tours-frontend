@@ -150,7 +150,8 @@ interface orderResponse {
   status: string;
   result:number;
   paginationResult:paginationResult;
-  data:order[]
+  data:order[];
+  error?:string
 }
 export type {
   loginForm,
