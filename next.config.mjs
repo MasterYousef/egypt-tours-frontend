@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'egypt-tours-frontend.vercel.app',
+        hostname: 'egypt-tours-backend.vercel.app',
       },
     ],
   },
