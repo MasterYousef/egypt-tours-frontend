@@ -17,6 +17,7 @@ async function page() {
       <div className="main p-10">
         <div className="w-full flex flex-col p-5 profile rounded justify-center items-center mb-10 ">
           <img
+            crossOrigin="anonymous"
             src={user?.image}
             width={1000}
             height={1000}
@@ -24,6 +25,7 @@ async function page() {
             alt={""}
           />
           <Image
+            crossOrigin="anonymous"
             src={user?.image}
             width={1000}
             height={1000}
