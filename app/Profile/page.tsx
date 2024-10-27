@@ -4,7 +4,7 @@ import GetUserAction from "@/actions/GetUserAction";
 import Title from "../components/utils/Title";
 import "@/style/profile.css";
 import Edit from "../components/profile/EditProfile";
-// import GetBookedTours from "@/logic/profile/GetBookedTours";
+import GetBookedTours from "@/logic/profile/GetBookedTours";
 // import TourCard from "../components/tours/TourCard";
 // import AdminBookedTours from "../components/profile/AdminBookedTours";
 import { redirect } from "next/navigation";
@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 async function page() {
   const { user, token } = await GetUserAction();
   if(token){
-    // const res = await GetBookedTours(user._id, token, user.role);
+    const res = await GetBookedTours(user._id, token, user.role);
     return (
       <div className="main p-10">
         <div className="w-full flex flex-col p-5 profile rounded justify-center items-center mb-10 ">
