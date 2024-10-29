@@ -1,3 +1,4 @@
+"use server"
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import BaseUrl from "../app/BaseUrl";
 import { url } from "../types/types";
