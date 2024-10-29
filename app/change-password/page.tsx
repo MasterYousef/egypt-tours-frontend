@@ -13,8 +13,8 @@ import Submit from "../components/utils/Submit";
 function page() {
   const [state, formAction] = useFormState(changePasswordAction, undefined);
   const router = useRouter();
+  console.log(state);
   useEffect(() => {
-    console.log(state);
     if (state?.error) {
       if (state?.error === "jwt malformed") {
         handleErrors(state?.error as unknown as ErrorResponse);

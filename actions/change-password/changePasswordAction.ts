@@ -17,6 +17,7 @@ async function changePasswordAction(prevState: any, formData: FormData) {
     },
     token
   );
+  console.log(res);
   if ("status" in res) {
     if (res.status === "success") {
       return { success: "success please login again" };
