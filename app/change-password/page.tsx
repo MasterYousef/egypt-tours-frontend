@@ -14,13 +14,14 @@ function page() {
   const [state, formAction] = useFormState(changePasswordAction, undefined);
   const router = useRouter();
   useEffect(() => {
+    console.log(state);
     if (state?.error) {
       if (state?.error === "jwt malformed") {
         handleErrors(state?.error as unknown as ErrorResponse);
       } else {
         toast.error(state?.error);
       }
-    } else if (state?.errors) {
+    } else if (state?.errors) {      
       handleErrors({ response: { data: { errors: state?.errors } } });
     } else if (state?.success) {
       toast.success(state?.success);
