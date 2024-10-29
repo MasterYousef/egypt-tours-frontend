@@ -1,6 +1,6 @@
 "use client";
 import Title from "../components/utils/Title";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import changePasswordAction from "@/actions/change-password/changePasswordAction";
 import { useFormState } from "react-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,6 +13,10 @@ import Submit from "../components/utils/Submit";
 function page() {
   const [state, formAction] = useFormState(changePasswordAction, undefined);
   const router = useRouter();
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showOldPassword, setShowOldPassword] = useState(false);
+
   useEffect(() => {
     if (state?.error) {
       if (state?.error === "jwt malformed") {
@@ -46,15 +50,21 @@ function page() {
               >
                 new Password
               </label>
-              <div className="mt-2">
+              <div className="mt-2 relative">
                 <input
                   id="newPassword"
                   name="newPassword"
-                  type="password"
+                  type={showNewPassword ? "text" : "password"}
                   autoComplete="password"
                   required
                   className="px-2 block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4 focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
                 />
+                <span 
+                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
+                  onClick={() => setShowNewPassword(!showNewPassword)}
+                >
+                  {showNewPassword ? "👁️" : "👁️‍🗨️"}
+                </span>
               </div>
             </div>
             <div>
@@ -64,15 +74,21 @@ function page() {
               >
                 confirm new Password
               </label>
-              <div className="mt-2">
+              <div className="mt-2 relative">
                 <input
                   id="confirmNewPassword"
                   name="confirmNewPassword"
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   autoComplete="password"
                   required
                   className="px-2 block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4 focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
                 />
+                <span 
+                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? "👁️" : "👁️‍🗨️"}
+                </span>
               </div>
             </div>
             <div>
@@ -89,15 +105,21 @@ function page() {
                   </a>
                 </div>
               </div>
-              <div className="mt-2">
+              <div className="mt-2 relative">
                 <input
                   id="Oldpassword"
                   name="Oldpassword"
-                  type="password"
+                  type={showOldPassword ? "text" : "password"}
                   autoComplete="current-password"
                   required
                   className="px-2 block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4 focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
                 />
+                <span 
+                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
+                  onClick={() => setShowOldPassword(!showOldPassword)}
+                >
+                  {showOldPassword ? "👁️" : "👁️‍🗨️"}
+                </span>
               </div>
             </div>
             <div>
