@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@fortawesome/fontawesome-free/css/all.css";
 import "@/style/globals.css";
 import Footer from "./components/utils/Footer";
 import { ToastContainer } from "react-toastify";
