@@ -32,6 +32,8 @@ const loginLogic = () => {
           refresh();
         },1000);
       } else {
+        console.log(res);
+        
         handleErrors(res as unknown as ErrorResponse);
       }
     }
