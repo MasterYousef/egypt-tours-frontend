@@ -63,7 +63,7 @@ function page() {
                   className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
                   onClick={() => setShowNewPassword(!showNewPassword)}
                 >
-                  {showNewPassword ? "👁️" : "👁️‍🗨️"}
+                  {showNewPassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}
                 </span>
               </div>
             </div>
@@ -87,7 +87,7 @@ function page() {
                   className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 >
-                  {showConfirmPassword ? "👁️" : "👁️‍🗨️"}
+                  {showConfirmPassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}
                 </span>
               </div>
             </div>
@@ -118,7 +118,7 @@ function page() {
                   className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
                   onClick={() => setShowOldPassword(!showOldPassword)}
                 >
-                  {showOldPassword ? "👁️" : "👁️‍🗨️"}
+                  {showOldPassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}
                 </span>
               </div>
             </div>
