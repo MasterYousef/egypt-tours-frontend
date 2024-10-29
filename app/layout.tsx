@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
 import "@/style/globals.css";
 import Footer from "./components/utils/Footer";
 import { ToastContainer } from "react-toastify";
