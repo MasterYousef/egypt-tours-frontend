@@ -13,7 +13,6 @@ import Submit from "../components/utils/Submit";
 function page() {
   const [state, formAction] = useFormState(changePasswordAction, undefined);
   const router = useRouter();
-  console.log(state);
   useEffect(() => {
     if (state?.error) {
       if (state?.error === "jwt malformed") {
@@ -28,7 +27,8 @@ function page() {
       setTimeout(() => {
         useLogOut();
         router.replace("/")
-      }, 2000);
+        router.refresh()
+      },1500);
     }
   }, [state]);
   return (
