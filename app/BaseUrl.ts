@@ -1,5 +1,5 @@
 import axios from "axios";
 const BaseUrl = axios.create({
-  baseURL: "/",
+  baseURL: "https://egypt-tours-frontend.vercel.app",
 });
 export default BaseUrl;
