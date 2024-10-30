@@ -8,6 +8,7 @@ import GetUserAction from "@/actions/GetUserAction";
 import { useRouter } from "next/navigation";
 const createTourLogic = () => {
   const [token, settoken] = useState("");
+  const [loading, setLoading] = useState(false);
   const { refresh } = useRouter();
   const [selected, setSelected] = useState(new Date());
   const [images, setImages] = useState<string[]>([]);
@@ -28,6 +29,8 @@ const createTourLogic = () => {
   ) => {
     const event = e as unknown as React.ChangeEvent<tourForm>;
     e.preventDefault();
+    console.log("work");
+    
     if (
       event.target.name.value === "" ||
       event.target.description.value === "" ||
@@ -39,6 +42,7 @@ const createTourLogic = () => {
     ) {
       toast.warning("Please fill in all information");
     } else {
+      setLoading(true)
       data.current.set("title", event.target.name.value);
       data.current.set("description", event.target.description.value);
       data.current.set("price", event.target.price.value);
@@ -59,6 +63,7 @@ const createTourLogic = () => {
         data.current,
         token
       );
+      setLoading(false)
       console.log("test");
 
       console.log(res);
@@ -93,6 +98,7 @@ const createTourLogic = () => {
     data,
     images,
     setImages,
+    loading
   };
 };
 export default createTourLogic;

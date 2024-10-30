@@ -4,18 +4,23 @@ import DatePicker from "react-datepicker";
 import createTourLogic from "@/logic/admin-create-tour/adminCreateTour";
 import { ToastContainer } from "react-toastify";
 import ImageUploader from "../components/utils/ImageUploader";
+import { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
-  function Page() {
+function Page() {
   const logic = createTourLogic();
   return (
     <div className="flex justify-center items-center p-10 main">
       <div className="shadow-lg md:w-1/3 relative flex flex-col justify-center h-auto items-center  bg-white rounded  w-full ">
-        <label htmlFor="img" className="cursor-pointer w-full img">
+        <label
+          htmlFor="img"
+          className="cursor-pointer w-full img flex justify-center"
+        >
           <Image
             src={logic.img}
             width={1000}
             height={1000}
-            className=" w-full h-44"
+            className=" w-1/2 h-44"
             alt={""}
           />
         </label>
@@ -26,7 +31,12 @@ import ImageUploader from "../components/utils/ImageUploader";
           name="img"
           onChange={logic.changeImg}
         ></input>
-        <ImageUploader file={logic.file} setFile={logic.setFile} images={logic.images} setImages={logic.setImages}/>
+        <ImageUploader
+          file={logic.file}
+          setFile={logic.setFile}
+          images={logic.images}
+          setImages={logic.setImages}
+        />
         <form
           className=" w-full pb-3 text-center mx-5 text-2xl card-details border-t"
           onSubmit={logic.handleSubmit}
@@ -77,12 +87,12 @@ import ImageUploader from "../components/utils/ImageUploader";
             />
           </div>
           <div className="border-b  my-1 py-3">
-              <DatePicker
-                selected={logic.selected}
-                onChange={logic.setDate}
-                dateFormat="dd/MM/yyyy"
-                className=" text-center cursor-pointer text-xl w-full"
-              />
+            <DatePicker
+              selected={logic.selected}
+              onChange={logic.setDate}
+              dateFormat="dd/MM/yyyy"
+              className=" text-center cursor-pointer text-xl w-full"
+            />
           </div>
           <div className="border-b my-1 py-3 ">
             <input
@@ -101,7 +111,44 @@ import ImageUploader from "../components/utils/ImageUploader";
           </button>
         </form>
       </div>
-      <ToastContainer/>
+      <Transition appear show={logic.loading} as={Fragment}>
+        <Dialog as="div" className="relative z-50" onClose={() => null}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="  transform overflow-hidden rounded-2xl bg-white p-10 text-left align-middle shadow-xl transition-all">
+                  <div className=" flex flex-col justify-center items-center">
+                    <i className="fa-solid fa-circle-notch animate-spin text-7xl text-yellow-500 mb-10"></i>
+                    <div className="text-5xl">
+                      Loading..<span className="animate-ping">.</span>
+                    </div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
+      <ToastContainer />
     </div>
   );
 }
