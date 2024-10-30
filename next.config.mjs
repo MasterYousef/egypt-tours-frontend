@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["egypt-tours-backend.onrender.com"],
+    domains: ["res.cloudinary.com"],
   },
 };
 
