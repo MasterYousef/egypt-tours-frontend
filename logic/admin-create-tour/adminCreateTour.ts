@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import im from "/public/image/h2.png";
+import im from "/public/image/add.png";
 import { ErrorResponse, tour, tourForm } from "@/types/types";
 import { useInsertData } from "@/hooks/useInsertData";
 import { toast } from "react-toastify";
@@ -50,7 +50,7 @@ const createTourLogic = () => {
       );
       data.current.set("duration", event.target.duration.value);
       file.map((im) => {
-        if(!data.current.getAll("images").includes(im)){
+        if (!data.current.getAll("images").includes(im)) {
           data.current.append("images", im);
         }
       });
@@ -59,6 +59,9 @@ const createTourLogic = () => {
         data.current,
         token
       );
+      console.log("test");
+
+      console.log(res);
       if (res.status === "success") {
         toast.success("tour created successfully");
         setTimeout(() => {
@@ -89,7 +92,7 @@ const createTourLogic = () => {
     setFile,
     data,
     images,
-    setImages
+    setImages,
   };
 };
 export default createTourLogic;
