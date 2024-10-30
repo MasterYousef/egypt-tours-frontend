@@ -33,16 +33,17 @@ const createTourLogic = () => {
     ) {
       toast.warning("Please fill in all information");
     } else {
-      const hasLargeFile = file.some((f) => {
+      const hasLargeFile = await file.some((f) => {
         if (f.size > MAX_SIZE) {
           console.log(`File ${f.name} is too large.`);
           return true; 
         }
         return false;
       });
-      if (!hasLargeFile) {
+      console.log(hasLargeFile);
+      if (hasLargeFile) {
         toast.error("File size is too large");
-      } else {
+      } else if(!hasLargeFile) {
         setLoading(true);
         data.current.set("title", event.target.name.value);
         data.current.set("description", event.target.description.value);
