@@ -6,7 +6,7 @@ import handleErrors from "@/hooks/handleErrors";
 import GetUserAction from "@/actions/GetUserAction";
 import { useRouter } from "next/navigation";
 const createTourLogic = () => {
-  const MAX_SIZE = 5 * 1024 * 1024;
+  const MAX_SIZE = 4.5 * 1024 * 1024;
   const [token, settoken] = useState("");
   const [loading, setLoading] = useState(false);
   const { refresh } = useRouter();
