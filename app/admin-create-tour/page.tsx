@@ -12,25 +12,6 @@ function Page() {
   return (
     <div className="flex justify-center items-center p-10 main">
       <div className="shadow-lg md:w-1/3 relative flex flex-col justify-center h-auto items-center  bg-white rounded  w-full ">
-        <label
-          htmlFor="img"
-          className="cursor-pointer w-full img flex justify-center"
-        >
-          <Image
-            src={logic.img}
-            width={1000}
-            height={1000}
-            className=" w-1/2 h-44"
-            alt={""}
-          />
-        </label>
-        <input
-          className=" absolute top-5 opacity-0"
-          type="file"
-          id="img"
-          name="img"
-          onChange={logic.changeImg}
-        ></input>
         <ImageUploader
           file={logic.file}
           setFile={logic.setFile}

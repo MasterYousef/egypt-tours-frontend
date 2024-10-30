@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import im from "/public/image/add.png";
 import { ErrorResponse, tour, tourForm } from "@/types/types";
 import { useInsertData } from "@/hooks/useInsertData";
 import { toast } from "react-toastify";
@@ -13,14 +12,7 @@ const createTourLogic = () => {
   const [selected, setSelected] = useState(new Date());
   const [images, setImages] = useState<string[]>([]);
   const [file, setFile] = useState<File[]>([]);
-  const [img, setImg] = useState(im.src);
   const data = useRef(new FormData());
-  const changeImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setImg(URL.createObjectURL(e.target.files[0]));
-      data.current.set("imageCover", e.target.files[0]);
-    }
-  };
   const setDate = (date: Date) => {
     setSelected(date);
   };
@@ -38,7 +30,7 @@ const createTourLogic = () => {
       event.target.maxPeople.value === "" ||
       event.target.guides.value === "" ||
       event.target.duration.value === "" ||
-      img === im.src
+      file.length <= 0
     ) {
       toast.warning("Please fill in all information");
     } else {
@@ -65,13 +57,12 @@ const createTourLogic = () => {
       );
       setLoading(false)
       console.log("test");
-
       console.log(res);
       if (res.status === "success") {
         toast.success("tour created successfully");
         setTimeout(() => {
           refresh();
-        }, 2000);
+        }, 1500);
       } else {
         handleErrors(res as unknown as ErrorResponse);
       }
@@ -89,8 +80,6 @@ const createTourLogic = () => {
   return {
     selected,
     setSelected,
-    img,
-    changeImg,
     handleSubmit,
     setDate,
     file,
