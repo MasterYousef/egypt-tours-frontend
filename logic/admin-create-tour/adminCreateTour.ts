@@ -36,14 +36,14 @@ const createTourLogic = () => {
       const hasLargeFile = await file.some((f) => {
         if (f.size > MAX_SIZE) {
           console.log(`File ${f.name} is too large.`);
-          return true; 
+          return true;
         }
         return false;
       });
       console.log(hasLargeFile);
       if (hasLargeFile) {
         toast.error("File size is too large");
-      } else if(!hasLargeFile) {
+      } else if (!hasLargeFile) {
         setLoading(true);
         data.current.set("title", event.target.name.value);
         data.current.set("description", event.target.description.value);
@@ -55,9 +55,13 @@ const createTourLogic = () => {
           selected.toLocaleDateString("en-GB").split("/").reverse().join("-")
         );
         data.current.set("duration", event.target.duration.value);
-        file.map((im) => {
-          if (!data.current.getAll("images").includes(im)) {
-            data.current.append("images", im);
+        file.map((im, index) => {
+          if (index === 0) {
+            data.current.set("imageCover", im);
+          } else {
+            if (!data.current.getAll("images").includes(im)) {
+              data.current.append("images", im);
+            }
           }
         });
         const res = await useInsertData<tour>(
