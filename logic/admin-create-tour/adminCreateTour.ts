@@ -34,6 +34,12 @@ const createTourLogic = () => {
     ) {
       toast.warning("Please fill in all information");
     } else {
+      file.map((im) => {
+        console.log(im);
+        if (!data.current.getAll("images").includes(im)) {
+          data.current.append("images", im);
+        }
+      });
       setLoading(true)
       data.current.set("title", event.target.name.value);
       data.current.set("description", event.target.description.value);
@@ -45,11 +51,7 @@ const createTourLogic = () => {
         selected.toLocaleDateString("en-GB").split("/").reverse().join("-")
       );
       data.current.set("duration", event.target.duration.value);
-      file.map((im) => {
-        if (!data.current.getAll("images").includes(im)) {
-          data.current.append("images", im);
-        }
-      });
+
       const res = await useInsertData<tour>(
         "/api/v1/tour",
         data.current,
