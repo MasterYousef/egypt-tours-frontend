@@ -22,8 +22,6 @@ const createTourLogic = () => {
   ) => {
     const event = e as unknown as React.ChangeEvent<tourForm>;
     e.preventDefault();
-    console.log("work");
-
     if (
       event.target.name.value === "" ||
       event.target.description.value === "" ||
@@ -38,11 +36,11 @@ const createTourLogic = () => {
       const hasLargeFile = file.some((f) => {
         if (f.size > MAX_SIZE) {
           console.log(`File ${f.name} is too large.`);
-          return true; // Stop if a large file is found
+          return true; 
         }
         return false;
       });
-      if (hasLargeFile) {
+      if (!hasLargeFile) {
         toast.error("File size is too large");
       } else {
         setLoading(true);
@@ -67,8 +65,6 @@ const createTourLogic = () => {
           token
         );
         setLoading(false);
-        console.log("test");
-        console.log(res);
         if (res.status === "success") {
           toast.success("tour created successfully");
           setTimeout(() => {
