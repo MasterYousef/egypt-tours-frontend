@@ -6,6 +6,7 @@ import handleErrors from "@/hooks/handleErrors";
 import GetUserAction from "@/actions/GetUserAction";
 import { useRouter } from "next/navigation";
 const createTourLogic = () => {
+  const MAX_SIZE = 10 * 1024 * 1024;
   const [token, settoken] = useState("");
   const [loading, setLoading] = useState(false);
   const { refresh } = useRouter();
@@ -22,7 +23,7 @@ const createTourLogic = () => {
     const event = e as unknown as React.ChangeEvent<tourForm>;
     e.preventDefault();
     console.log("work");
-    
+
     if (
       event.target.name.value === "" ||
       event.target.description.value === "" ||
@@ -34,39 +35,48 @@ const createTourLogic = () => {
     ) {
       toast.warning("Please fill in all information");
     } else {
-      file.map((im) => {
-        console.log(im);
-        if (!data.current.getAll("images").includes(im)) {
-          data.current.append("images", im);
+      const hasLargeFile = file.some((f) => {
+        if (f.size > MAX_SIZE) {
+          console.log(`File ${f.name} is too large.`);
+          return true; // Stop if a large file is found
         }
+        return false;
       });
-      setLoading(true)
-      data.current.set("title", event.target.name.value);
-      data.current.set("description", event.target.description.value);
-      data.current.set("price", event.target.price.value);
-      data.current.set("maxPeople", event.target.maxPeople.value);
-      data.current.set("guides", event.target.guides.value);
-      data.current.set(
-        "start",
-        selected.toLocaleDateString("en-GB").split("/").reverse().join("-")
-      );
-      data.current.set("duration", event.target.duration.value);
-
-      const res = await useInsertData<tour>(
-        "/api/v1/tour",
-        data.current,
-        token
-      );
-      setLoading(false)
-      console.log("test");
-      console.log(res);
-      if (res.status === "success") {
-        toast.success("tour created successfully");
-        setTimeout(() => {
-          refresh();
-        }, 1500);
+      if (hasLargeFile) {
+        toast.error("File size is too large");
       } else {
-        handleErrors(res as unknown as ErrorResponse);
+        setLoading(true);
+        data.current.set("title", event.target.name.value);
+        data.current.set("description", event.target.description.value);
+        data.current.set("price", event.target.price.value);
+        data.current.set("maxPeople", event.target.maxPeople.value);
+        data.current.set("guides", event.target.guides.value);
+        data.current.set(
+          "start",
+          selected.toLocaleDateString("en-GB").split("/").reverse().join("-")
+        );
+        data.current.set("duration", event.target.duration.value);
+        file.map((im) => {
+          if (!data.current.getAll("images").includes(im)) {
+            data.current.append("images", im);
+          }
+        });
+        const res = await useInsertData<tour>(
+          "/api/v1/tour",
+          data.current,
+          token
+        );
+        setLoading(false);
+        console.log("test");
+        console.log(res);
+        if (res.status === "success") {
+          toast.success("tour created successfully");
+          setTimeout(() => {
+            refresh();
+          }, 1500);
+        } else {
+          handleErrors(res as unknown as ErrorResponse);
+        }
       }
     }
   };
@@ -89,7 +99,7 @@ const createTourLogic = () => {
     data,
     images,
     setImages,
-    loading
+    loading,
   };
 };
 export default createTourLogic;
