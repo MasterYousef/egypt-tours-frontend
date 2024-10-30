@@ -24,15 +24,15 @@ function page() {
       } else {
         toast.error(state?.error);
       }
-    } else if (state?.errors) {      
+    } else if (state?.errors) {
       handleErrors({ response: { data: { errors: state?.errors } } });
     } else if (state?.success) {
       toast.success(state?.success);
       setTimeout(() => {
         useLogOut();
-        router.replace("/")
-        router.refresh()
-      },1500);
+        router.replace("/");
+        router.refresh();
+      }, 1500);
     }
   }, [state]);
   return (
@@ -59,12 +59,14 @@ function page() {
                   required
                   className="px-2 block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4 focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
                 />
-                <span 
-                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
+                <i
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none ${
+                    showNewPassword
+                      ? "fa-regular fa-eye"
+                      : "fa-regular fa-eye-slash"
+                  }`}
                   onClick={() => setShowNewPassword(!showNewPassword)}
-                >
-                  {showNewPassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}
-                </span>
+                />
               </div>
             </div>
             <div>
@@ -83,12 +85,14 @@ function page() {
                   required
                   className="px-2 block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4 focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
                 />
-                <span 
-                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
+                <i
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none ${
+                    showConfirmPassword
+                      ? "fa-regular fa-eye"
+                      : "fa-regular fa-eye-slash"
+                  }`}
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                >
-                  {showConfirmPassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}
-                </span>
+                />
               </div>
             </div>
             <div>
@@ -114,16 +118,21 @@ function page() {
                   required
                   className="px-2 block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4 focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
                 />
-                <span 
-                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none"
+                <i
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none ${
+                    showOldPassword
+                      ? "fa-regular fa-eye"
+                      : "fa-regular fa-eye-slash"
+                  }`}
                   onClick={() => setShowOldPassword(!showOldPassword)}
-                >
-                  {showOldPassword ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"}
-                </span>
+                />
               </div>
             </div>
             <div>
-              <Submit text="submit" className="w-full px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm background  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"/>
+              <Submit
+                text="submit"
+                className="w-full px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm background  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              />
             </div>
           </form>
         </div>
