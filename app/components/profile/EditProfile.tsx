@@ -8,7 +8,6 @@ import { user } from "@/types/types";
 
 export default function Edit({ user, token }: { user: user; token: string }) {
   const logic = EditProfileLogic(user, token);
-  console.log(user.image)
   return (
     <div>
       <button className="hov2 p-3" onClick={() => logic.setIsOpen(true)}>

@@ -38,8 +38,6 @@ const EditProfileLogic = (user: user, token: string) => {
   };
   const editProfile = async () => {
     const hasData = Array.from(data.current.entries()).length > 0;
-    console.log(name);
-    console.log(data.current.getAll("username"));
     if (!hasData) {
       toast.warning("you didn't change your data");
     } else {
@@ -53,6 +51,7 @@ const EditProfileLogic = (user: user, token: string) => {
       setIsOpen(false);
       setLoading(false);
       if (res.status === "success") {
+        console.log(res);
         toast.success("profile has been updated successfully", {
           className: "h-16 w-70 text-sm",
         });
