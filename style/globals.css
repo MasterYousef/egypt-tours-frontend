@@ -39,12 +39,8 @@ input::-webkit-inner-spin-button {
 }
 .hov1 {
   letter-spacing: 0;
+  transition: letter-spacing 0.5s;
 }
-
-.hov1 {
-  letter-spacing: 0;
-}
-
 .hov1:hover,
 .hov1:active {
   letter-spacing: 5px;
