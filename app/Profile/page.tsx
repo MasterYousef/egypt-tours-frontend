@@ -33,7 +33,7 @@ async function page() {
         <div className="w-full flex flex-col items-center">
           <Title text={"Booked tours"} />
           <div className="w-full my-5 flex flex-wrap">
-            {"error" in res ? (
+            {"error" in res || res?.data?.length <= 0 ? (
               <p className="my-16 text-xl font-serif text-center w-full">
                 {res.error || "no tour booked"}
               </p>

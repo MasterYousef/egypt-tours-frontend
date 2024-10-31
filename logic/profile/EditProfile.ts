@@ -55,6 +55,7 @@ const EditProfileLogic = (user: user, token: string) => {
         toast.success("profile has been updated successfully", {
           className: "h-16 w-70 text-sm",
         });
+        
         setIsOpen(false);
         setTimeout(() => {
           refresh()
