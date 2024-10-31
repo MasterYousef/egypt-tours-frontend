@@ -68,12 +68,19 @@ function SignUp() {
                 required
                 className="px-2 block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4 focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
               />
-              <i
-                className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none ${
-                  passwordShow ? "fa-regular fa-eye" : "fa-regular fa-eye-slash"
-                }`}
-                onClick={() => setPasswrdShow(!passwordShow)}
-              />
+              <label
+                htmlFor="password"
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+              >
+                <i
+                  className={`select-none ${
+                    passwordShow
+                      ? "fa-regular fa-eye"
+                      : "fa-regular fa-eye-slash"
+                  }`}
+                  onClick={() => setPasswrdShow(!passwordShow)}
+                />
+              </label>
             </div>
           </div>
           <div>
@@ -94,14 +101,19 @@ function SignUp() {
                 required
                 className="px-2 block w-full ease-in-out duration-200 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4 focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
               />
-              <i
-                className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none ${
-                  passwordConfirmShow
-                    ? "fa-regular fa-eye"
-                    : "fa-regular fa-eye-slash"
-                }`}
-                onClick={() => setPasswordConfirmShow(!passwordConfirmShow)}
-              />
+              <label
+                htmlFor="passwordConfirm"
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer "
+              >
+                <i
+                  className={`select-none ${
+                    passwordConfirmShow
+                      ? "fa-regular fa-eye"
+                      : "fa-regular fa-eye-slash"
+                  }`}
+                  onClick={() => setPasswordConfirmShow(!passwordConfirmShow)}
+                />
+              </label>
             </div>
           </div>
           <div>

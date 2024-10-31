@@ -56,14 +56,16 @@ function LogIn() {
                    text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:border-b-4
                     focus-within:border-amber-400 focus-within:outline-none  sm:text-sm sm:leading-6"
               />
-              <i
-                className={`absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none ${
-                  passwordShow
-                    ? "fa-regular fa-eye"
-                    : "fa-regular fa-eye-slash"
-                }`}
-                onClick={() => setPasswrdShow(!passwordShow)}
-              />
+              <label className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer " htmlFor="password">
+                <i
+                  className={`select-none ${
+                    passwordShow
+                      ? "fa-regular fa-eye"
+                      : "fa-regular fa-eye-slash"
+                  }`}
+                  onClick={() => setPasswrdShow(!passwordShow)}
+                />
+              </label>
             </div>
           </div>
           <div>
