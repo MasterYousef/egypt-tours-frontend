@@ -35,7 +35,7 @@ async function page() {
           <div className="w-full my-5 flex flex-wrap">
             {"error" in res ? (
               <p className="my-16 text-xl font-serif text-center w-full">
-                {res.error}
+                {res.error || "no tour booked"}
               </p>
             ) : user.role === "admin" ? (
               res.data.map((e) => (
