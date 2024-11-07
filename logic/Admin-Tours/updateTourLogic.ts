@@ -9,19 +9,13 @@ import GetUserAction from "@/actions/GetUserAction";
 
 function updateTourLogic(id: string) {
   const [token, settoken] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
   const [file, setFile] = useState<File[]>([]);
   const [images, setImages] = useState<string[]>([]);
   const [tour, setTour] = useState<oneTour>({} as oneTour);
   const [selected, setSelected] = useState<Date>(new Date());
   const { refresh } = useRouter();
-  const [img, setImg] = useState("");
   const data = useRef(new FormData());
-  const changeImg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setImg(URL.createObjectURL(e.target.files[0]));
-      data.current.set("imageCover", e.target.files[0]);
-    }
-  };
   const setDate = (date: Date) => {
     setSelected(date);
   };
@@ -31,15 +25,21 @@ function updateTourLogic(id: string) {
     const event = e as unknown as React.ChangeEvent<tourForm>;
     e.preventDefault();
     if (
-      event.target.name.value === tour.title &&
-      event.target.description.value === tour.description &&
-      event.target.price.value === tour.price.toString() &&
-      event.target.maxPeople.value === tour.maxPeople.toString() &&
-      event.target.guides.value === tour.guides.toString() &&
-      event.target.duration.value === tour.duration.toString() &&
-      images === tour.images &&
-      selected.toString() === tour.start &&
-      img === tour.imageCover
+      (event.target.name.value === tour.title &&
+        event.target.description.value === tour.description &&
+        event.target.price.value === tour.price.toString() &&
+        event.target.maxPeople.value === tour.maxPeople.toString() &&
+        event.target.guides.value === tour.guides.toString() &&
+        event.target.duration.value === tour.duration.toString() &&
+        images === tour.images &&
+        selected.toString() === tour.start) ||
+      images?.length <= 0 ||
+      event.target.name.value === "" ||
+      event.target.description.value === "" ||
+      event.target.price.value === "" ||
+      event.target.duration.value === "" ||
+      event.target.guides.value === "" ||
+      event.target.maxPeople.value === ""
     ) {
       toast.warning("Please fill information to update tour");
     } else {
@@ -57,24 +57,31 @@ function updateTourLogic(id: string) {
       }
       if (tour.images) {
         images.forEach((im) => {
-          if (!im.startsWith("blob")) {
+          if (!im.startsWith("blob:")) {
             data.current.append("images", im);
           }
         });
         file.forEach((f) => {
-          data.current.append("images", f);
+          if (
+            !data.current.getAll("images").includes(f) &&
+            f.name !== "none.png"
+          ) {
+            data.current.append("images", f);
+          }
         });
       }
+      setLoading(true)
       const res = await useUpdateData<tour>(
         `/api/v1/tour/${tour._id}`,
         data.current,
         token
       );
+      setLoading(false)
       if (res.status === "success") {
         toast.success("tour updated successfully");
         setTimeout(() => {
           refresh();
-        }, 2000);
+        }, 1000);
       } else {
         handleErrors(res as unknown as ErrorResponse);
       }
@@ -84,9 +91,17 @@ function updateTourLogic(id: string) {
     const res = await useGetData<tour>(`/api/v1/tour/${id}`);
     if (res.status === "success") {
       setTour(res.data);
-      setImg(res.data.imageCover);
-      setImages(res.data.images || []);
+      setImages(res.data.images);
       setSelected(res.data.start as unknown as Date);
+      const createFileFromString = (text: string, fileName = "none.png") => {
+        const file = new File([text], fileName, { type: "text/plain" });
+        return file;
+      };
+      const files = res.data.images.map((_) => {
+        const file = createFileFromString("none");
+        return file;
+      });
+      setFile(files);
     }
     const { token } = await GetUserAction();
     if (token) {
@@ -99,8 +114,6 @@ function updateTourLogic(id: string) {
   return {
     selected,
     setSelected,
-    img,
-    changeImg,
     handleSubmit,
     setDate,
     tour,
@@ -108,6 +121,8 @@ function updateTourLogic(id: string) {
     setFile,
     images,
     setImages,
+    loading,
+    setLoading,
   };
 }
 

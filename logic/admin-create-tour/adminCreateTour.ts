@@ -55,10 +55,7 @@ const createTourLogic = () => {
           selected.toLocaleDateString("en-GB").split("/").reverse().join("-")
         );
         data.current.set("duration", event.target.duration.value);
-        file.map((im, index) => {
-          if (index === 0) {
-            data.current.set("imageCover", im);
-          } else {
+        file.map((im, index) => { {
             if (!data.current.getAll("images").includes(im)) {
               data.current.append("images", im);
             }

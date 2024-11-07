@@ -35,9 +35,10 @@ const signUpLogic = () => {
           className: "h-16 w-70 text-sm",
         });
         setIsOpen(false);
+        window.scrollTo(0,0)
         setTimeout(() => {
           refresh();
-        }, 1000);
+        },1000);
       } else {
         handleErrors(res as unknown as ErrorResponse);
       }

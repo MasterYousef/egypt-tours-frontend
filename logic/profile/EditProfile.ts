@@ -51,7 +51,6 @@ const EditProfileLogic = (user: user, token: string) => {
       setIsOpen(false);
       setLoading(false);
       if (res.status === "success") {
-        console.log(res);
         toast.success("profile has been updated successfully", {
           className: "h-16 w-70 text-sm",
         });

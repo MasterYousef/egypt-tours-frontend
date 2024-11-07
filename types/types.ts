@@ -30,7 +30,7 @@ interface oneTour {
   guides: number;
   start: string;
   role: string;
-  images?: string[];
+  images: string[];
   ratingsAverage?: number;
   ratingsQuantity?: number;
 }

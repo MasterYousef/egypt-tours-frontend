@@ -29,7 +29,7 @@ function page() {
     } else if (state?.success) {
       toast.success(state?.success);
       setTimeout(() => {
-        useLogOut();
+        // useLogOut();
         router.replace("/");
         router.refresh();
       }, 1500);
