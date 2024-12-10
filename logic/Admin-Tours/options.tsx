@@ -85,7 +85,6 @@ function optionsLogic(
     } else {
       setSearch([...search, `ratingsAverage[gte]=${avg}`]);
     }
-    console.log(search);
   };
   const setPepole = (
     e: React.ChangeEvent<pepole> | React.FormEvent<HTMLFormElement>

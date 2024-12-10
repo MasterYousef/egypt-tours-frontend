@@ -40,7 +40,6 @@ const createTourLogic = () => {
         }
         return false;
       });
-      console.log(hasLargeFile);
       if (hasLargeFile) {
         toast.error("File size is too large");
       } else if (!hasLargeFile) {
@@ -69,10 +68,20 @@ const createTourLogic = () => {
         setLoading(false);
         if (res.status === "success") {
           toast.success("tour created successfully");
+          event.target.name.value = "" 
+          event.target.description.value = "" 
+          event.target.price.value = "" 
+          event.target.maxPeople.value = "" 
+          event.target.guides.value = "" 
+          event.target.duration.value = "" 
+          setImages([])
+          setFile([])
+          setSelected(new Date())
           setTimeout(() => {
             refresh();
           }, 1500);
         } else {
+          
           handleErrors(res as unknown as ErrorResponse);
         }
       }

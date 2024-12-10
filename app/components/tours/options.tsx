@@ -1,6 +1,7 @@
 "use client";
 import ReactDatePicker from "react-datepicker";
 import optionsLogic from "@/logic/Admin-Tours/options";
+import { useSearchParams } from "next/navigation";
 function Options({
   setSearch,
   search
@@ -8,6 +9,12 @@ function Options({
   setSearch: React.Dispatch<React.SetStateAction<string[]>>;
   search:string[]
 }) {
+  const searchParams = useSearchParams();
+  const query = searchParams.toString() 
+    ? Object.fromEntries(new URLSearchParams(searchParams.toString()))
+    : {};
+  console.log(query);
+  
  const logic = optionsLogic(search,setSearch)
   return (
     <div className="md:col-span-3 col-span-12 mt-10">
@@ -54,6 +61,7 @@ function Options({
             <input
               type="number"
               name="minGroup"
+              defaultValue={query?.["maxPeople[gte]"]}
               min={0}
               placeholder="min"
               className="p-1 w-11/12 ps-7 rounded focus-visible:outline-yellow-500 my-2"
@@ -66,6 +74,7 @@ function Options({
             <input
               type="number"
               name="maxGroup"
+              defaultValue={query?.["maxPeople[lte]"]}
               min={0}
               placeholder="max"
               className="p-1 ps-7 w-11/12 rounded focus-visible:outline-yellow-500 my-2"
@@ -88,6 +97,7 @@ function Options({
             <input
               type="number"
               name="minPrice"
+              defaultValue={query?.["price[gte]"]}
               placeholder="min"
               className="p-1 w-11/12 ps-4 rounded focus-visible:outline-yellow-500 my-2"
             />
@@ -99,6 +109,7 @@ function Options({
             <input
               type="number"
               name="maxPrice"
+              defaultValue={query?.["price[lte]"]}
               placeholder="max"
               className="p-1 ps-4 w-11/12 rounded focus-visible:outline-yellow-500 my-2"
             />
@@ -118,6 +129,7 @@ function Options({
             <input
               type="number"
               name="minDuration"
+              defaultValue={query?.["duration[gte]"]}
               placeholder="min"
               className="p-1 w-11/12 ps-5 rounded focus-visible:outline-yellow-500 my-2"
             />
@@ -129,6 +141,7 @@ function Options({
             <input
               type="number"
               name="maxDuration"
+              defaultValue={query?.["duration[lte]"]}
               placeholder="max"
               className="p-1 ps-5 w-11/12 rounded focus-visible:outline-yellow-500 my-2"
             />
