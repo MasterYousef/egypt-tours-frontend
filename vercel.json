@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://egypt-tours-backend.onrender.com/api/$1"
+      "destination": "https://ethnic-harrier-o0yousef0o-1a1b5155.koyeb.app/api/$1"
     }
   ]
 }
