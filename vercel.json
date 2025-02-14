@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://ethnic-harrier-o0yousef0o-1a1b5155.koyeb.app/api/$1"
+      "destination": "https://xenogeneic-harmony-o0egypt-tours0o-187c1086.koyeb.app/api/$1"
     }
   ]
 }
