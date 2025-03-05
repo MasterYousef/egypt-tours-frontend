@@ -21,6 +21,7 @@ const loginLogic = () => {
       setIsOpen(true);
       const res = await useInsertData<userResponse>("/api/v1/auth/login", data);
       setIsOpen(false);
+      console.log(res);
       if (res.status === "success") {
         await fetch("/api/set-cookies", {
           method: "POST",

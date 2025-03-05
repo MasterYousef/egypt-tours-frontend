@@ -3,7 +3,6 @@ import { cookies } from "next/headers";
 export async function POST(req: Request) {
   const reqData = await req.json();
   console.log("Received request data:", reqData);
-
   cookies().set("token", reqData.token || "secureValue", {
     httpOnly: true,
     secure: true,
