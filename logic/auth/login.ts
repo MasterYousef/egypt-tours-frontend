@@ -27,7 +27,7 @@ const loginLogic = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ token: "res.token" }),
+          body: JSON.stringify({ token: res.token }),
           credentials: "include",
         });
         toast.success("user has been login successfully", {
