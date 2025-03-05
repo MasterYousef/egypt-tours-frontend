@@ -56,14 +56,14 @@ interface user {
   password: string;
   email: string;
   image: string;
-  role: "user"|"admin";
+  role: "user" | "admin";
 }
 interface rate {
   _id: string;
   comment: string;
   rate: number;
   tour: string;
-  user: user
+  user: user;
 }
 interface rateResponse {
   status: string;
@@ -81,8 +81,8 @@ interface tour {
 }
 interface userResponse {
   status: string;
-  data?: user;
-  token?: string;
+  user: user;
+  token: string;
 }
 interface resMessage {
   status: string;
@@ -102,56 +102,56 @@ interface tourResponse {
   paginationResult: paginationResult;
 }
 interface coupon {
-  _id:string;
-  name:string;
-  discount:number;
-  expire:string
+  _id: string;
+  name: string;
+  discount: number;
+  expire: string;
 }
 interface couponRes {
   status: string;
   paginationResult: paginationResult;
-  data:coupon[]
+  data: coupon[];
 }
 type CouponState = {
   success?: string;
   error?: string;
   errors?: errors[];
-}
+};
 interface query {
   sort?: string;
   keyword?: string;
   scroll?: string;
 }
 type link = {
-  href: 'https://api.sandbox.paypal.com/v1/payments/payment/PAYID-M2LT2GY25964120YV4591733',
-  rel: 'self',
-  method: 'GET'
-}
+  href: "https://api.sandbox.paypal.com/v1/payments/payment/PAYID-M2LT2GY25964120YV4591733";
+  rel: "self";
+  method: "GET";
+};
 interface payment {
   payment: {
-    id: string,
-    intent: string,
-    state: string,
-    payer: { payment_method: 'paypal', payer_info: [Object] },
-    transactions: [ [Object] ],
-    create_time: Date,
-    links: [ link,link,link ],
-    httpStatusCode: 201
-  }
+    id: string;
+    intent: string;
+    state: string;
+    payer: { payment_method: "paypal"; payer_info: [Object] };
+    transactions: [[Object]];
+    create_time: Date;
+    links: [link, link, link];
+    httpStatusCode: 201;
+  };
 }
 interface order {
   _id: string;
   tour: oneTour;
-  user:user;
-  price:number;
-  isPaid:Boolean
+  user: user;
+  price: number;
+  isPaid: Boolean;
 }
 interface orderResponse {
   status: string;
-  result:number;
-  paginationResult:paginationResult;
-  data:order[];
-  error?:string
+  result: number;
+  paginationResult: paginationResult;
+  data: order[];
+  error?: string;
 }
 export type {
   loginForm,
@@ -176,5 +176,5 @@ export type {
   CouponState,
   payment,
   order,
-  orderResponse
+  orderResponse,
 };

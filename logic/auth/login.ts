@@ -22,15 +22,16 @@ const loginLogic = () => {
       const res = await useInsertData<userResponse>("/api/v1/auth/login", data);
       setIsOpen(false);
       if (res.status === "success") {
+        await fetch("/set-cookie", { method: "POST", credentials: "include" });
         toast.success("user has been login successfully", {
           className: "h-16 w-70 text-sm",
-          autoClose:1500
+          autoClose: 1500,
         });
         setIsOpen(false);
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0);
         setTimeout(() => {
           refresh();
-        },1000);
+        }, 1000);
       } else {
         handleErrors(res as unknown as ErrorResponse);
       }
