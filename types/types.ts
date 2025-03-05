@@ -81,8 +81,10 @@ interface tour {
 }
 interface userResponse {
   status: string;
-  user: user;
-  token: string;
+  data: {
+    user: user;
+    token: string;
+  };
 }
 interface resMessage {
   status: string;
