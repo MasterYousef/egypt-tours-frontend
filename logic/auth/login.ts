@@ -22,7 +22,14 @@ const loginLogic = () => {
       const res = await useInsertData<userResponse>("/api/v1/auth/login", data);
       setIsOpen(false);
       if (res.status === "success") {
-        await fetch("/set-cookie", { method: "POST", credentials: "include" });
+        await fetch("/api/set-cookies", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token: "res.token" }),
+          credentials: "include",
+        });
         toast.success("user has been login successfully", {
           className: "h-16 w-70 text-sm",
           autoClose: 1500,

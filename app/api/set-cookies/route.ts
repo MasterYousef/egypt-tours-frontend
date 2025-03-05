@@ -1,7 +1,8 @@
 import { cookies } from "next/headers";
 
-export async function POST() {
-  cookies().set("serverCookie", "secureValue", {
+export async function POST(req: Request) {
+  const reqData = await req.json();
+  cookies().set("token", reqData.body || "secureValue", {
     httpOnly: true,
     secure: true,
     sameSite: "strict",
